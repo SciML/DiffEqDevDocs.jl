@@ -2,18 +2,24 @@
 language: julia
 os:
   - linux
-  - osx
 julia:
-  - release
-  - nightly
+  - 0.5
 notifications:
   email: false
-# uncomment the following lines to override the default test script
-#script:
-#  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
-#  - julia -e 'Pkg.clone(pwd()); Pkg.build("DiffEqDevDocs"); Pkg.test("DiffEqDevDocs"; coverage=true)'
-after_success:
-  # push coverage results to Coveralls
-  - julia -e 'cd(Pkg.dir("DiffEqDevDocs")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
-  # push coverage results to Codecov
-  - julia -e 'cd(Pkg.dir("DiffEqDevDocs")); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())'
+script:
+  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
+  - julia -e 'Pkg.clone("https://github.com/JuliaDiffEq/DifferentialEquations.jl")'
+  - julia -e 'Pkg.clone("https://github.com/JuliaDiffEq/ParameterizedFunctions.jl")'
+  - julia -e 'Pkg.clone("https://github.com/JuliaDiffEq/DiffEqProblemLibrary.jl")'
+  - julia -e 'Pkg.checkout("DifferentialEquations")'
+  - julia -e 'Pkg.checkout("AlgebraicDiffEq")'
+  - julia -e 'Pkg.checkout("StochasticDiffEq")'
+  - julia -e 'Pkg.checkout("FiniteElementDiffEq")'
+  - julia -e 'Pkg.checkout("DiffEqDevTools")'
+  - julia -e 'Pkg.checkout("DiffEqBase")'
+  - julia -e 'Pkg.checkout("OrdinaryDiffEq")'
+  - julia -e 'Pkg.checkout("DiffEqProblemLibrary")'
+  - julia -e 'Pkg.checkout("StokesDiffEq")'
+  - julia -e 'Pkg.checkout("DiffEqParamEstim")'
+  - julia -e 'Pkg.add("Documenter")'
+  - julia -e 'cd(Pkg.dir("DiffEqDocs")); include(joinpath("docs", "make.jl"))'
