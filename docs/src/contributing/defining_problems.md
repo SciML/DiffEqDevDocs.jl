@@ -1,4 +1,4 @@
-## Developing A New Problem
+# Developing A New Problem
 
 To develop a new problem, you need to make a new `DEProblem` and a new `DESolution`.
 The `DEProblem` type should hold all of the mathematical information about the
