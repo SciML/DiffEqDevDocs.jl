@@ -1,6 +1,6 @@
-## ODE Tableaus
+# ODE Tableaus
 
-### Tableau Methods
+## Tableau Methods
 
 ```@docs
 Base.length(::DiffEqBase.ODERKTableau)
@@ -11,7 +11,7 @@ DiffEqBase.ODERKTableau
 OrdinaryDiffEq.ODE_DEFAULT_TABLEAU
 ```
 
-### Explicit Tableaus
+## Explicit Tableaus
 
 ```@docs
 DiffEqDevTools.constructEuler
@@ -102,7 +102,7 @@ DiffEqDevTools.constructFeagin14
 DiffEqDevTools.constructFeagin14Tableau
 ```
 
-### Implicit Tableaus
+## Implicit Tableaus
 
 ```@docs
 DiffEqDevTools.constructImplicitEuler
