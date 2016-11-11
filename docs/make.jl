@@ -1,7 +1,7 @@
 using Documenter,DiffEqDevTools,DiffEqBase,FiniteElementDiffEq,
-      DiffEqProblemLibrary, StokesDiffEq
+      DiffEqProblemLibrary, StokesDiffEq, StochasticDiffEq
 
-makedocs(modules=[DiffEqDevTools,DiffEqBase,FiniteElementDiffEq,
+makedocs(modules=[DiffEqDevTools,DiffEqBase,FiniteElementDiffEq,StochasticDiffEq,
                   StokesDiffEq,OrdinaryDiffEq,DiffEqProblemLibrary],
          doctest=false, clean=true,
          format =:html,

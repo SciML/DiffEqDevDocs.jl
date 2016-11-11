@@ -1,3 +1,5 @@
+# Solver Extras
+
 ## SDE Solver Extras
 
 ```@docs
