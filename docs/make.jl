@@ -20,7 +20,7 @@ makedocs(modules=[DiffEqDevTools,DiffEqBase,FiniteElementDiffEq,
            "internals/extras.md",
            "internals/solver_helpers.md",
            "internals/notes_on_algorithms.md",
-           "internals/function_index.md"
+           "internals/tableaus.md"
          ]
          ])
 
