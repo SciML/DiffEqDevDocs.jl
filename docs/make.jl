@@ -9,10 +9,16 @@ makedocs(modules=[DiffEqDevTools,DiffEqBase,FiniteElementDiffEq,
          authors="Chris Rackauckas",
          pages = Any[
          "Home" => "index.md",
+         "Contributor Guide" => Any[
+           "contributing/contributors_guide.md",
+           "contributing/adding_algorithms.md",
+           "contributing/defining_problems.md",
+           "contributing/diffeq_internals.md"
+         ],
          "Internal Documentation" => Any[
-           "internals/contributors_guide.md",
            "internals/fem_tools.md",
            "internals/extras.md",
+           "internals/solver_helpers.md",
            "internals/notes_on_algorithms.md",
            "internals/function_index.md"
          ]
