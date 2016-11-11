@@ -586,15 +586,15 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#",
-    "page": "-",
-    "title": "-",
+    "page": "ODE Tableaus",
+    "title": "ODE Tableaus",
     "category": "page",
     "text": ""
 },
 
 {
     "location": "internals/tableaus.html#ODE-Tableaus-1",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "ODE Tableaus",
     "category": "section",
     "text": ""
@@ -602,7 +602,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#Base.length-Tuple{DiffEqBase.ODERKTableau}",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "Base.length",
     "category": "Method",
     "text": "Base.length(tab::ODERKTableau)\n\nDefines the length of a Runge-Kutta method to be the number of stages.\n\n\n\n"
@@ -610,7 +610,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.stability_region",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.stability_region",
     "category": "Function",
     "text": "stability_region(z,tab::ODERKTableau)\n\nCalculates the stability function from the tableau at z. Stable if <1.\n\nr(z) = fracdet(I-zA+zeb^T)det(I-zA)\n\n\n\n"
@@ -618,7 +618,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqBase.ExplicitRKTableau",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqBase.ExplicitRKTableau",
     "category": "Type",
     "text": "ExplicitRKTableau\n\nHolds a tableau which defines an explicit Runge-Kutta method.\n\n\n\n"
@@ -626,7 +626,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqBase.ImplicitRKTableau",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqBase.ImplicitRKTableau",
     "category": "Type",
     "text": "ImplicitRKTableau\n\nHolds a tableau which defines an implicit Runge-Kutta method.\n\n\n\n"
@@ -634,7 +634,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqBase.ODERKTableau",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqBase.ODERKTableau",
     "category": "Type",
     "text": "ODERKTableau: A Runge-Kutta Tableau for an ODE integrator\n\n\n\n"
@@ -642,7 +642,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#OrdinaryDiffEq.ODE_DEFAULT_TABLEAU",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "OrdinaryDiffEq.ODE_DEFAULT_TABLEAU",
     "category": "Constant",
     "text": "ODE_DEFAULT_TABLEAU\n\nSets the default tableau for the ODE solver. Currently Dormand-Prince 4/5.\n\n\n\n"
@@ -650,7 +650,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#Tableau-Methods-1",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "Tableau Methods",
     "category": "section",
     "text": "Base.length(::DiffEqBase.ODERKTableau)\nDiffEqDevTools.stability_region\nDiffEqBase.ExplicitRKTableau\nDiffEqBase.ImplicitRKTableau\nDiffEqBase.ODERKTableau\nOrdinaryDiffEq.ODE_DEFAULT_TABLEAU"
@@ -658,7 +658,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructEuler",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructEuler",
     "category": "Function",
     "text": "Euler's method.\n\n\n\n"
@@ -666,7 +666,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructRalston",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructRalston",
     "category": "Function",
     "text": "Ralston's Order 2 method.\n\n\n\n"
@@ -674,7 +674,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructHeun",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructHeun",
     "category": "Function",
     "text": "Heun's Order 2 method.\n\n\n\n"
@@ -682,7 +682,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructKutta3",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructKutta3",
     "category": "Function",
     "text": "Kutta's Order 3 method.\n\n\n\n"
@@ -690,7 +690,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#OrdinaryDiffEq.constructBS3",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "OrdinaryDiffEq.constructBS3",
     "category": "Function",
     "text": "constructBogakiShampine3()\n\nConstructs the tableau object for the Bogakai-Shampine Order 2/3 method.\n\n\n\n"
@@ -698,7 +698,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructBogakiShampine3",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructBogakiShampine3",
     "category": "Function",
     "text": "constructBogakiShampine3()\n\nConstructs the tableau object for the Bogakai-Shampine Order 2/3 method.\n\n\n\n"
@@ -706,7 +706,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructRK4",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructRK4",
     "category": "Function",
     "text": "Classic RK4 method.\n\n\n\n"
@@ -714,7 +714,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructRK438Rule",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructRK438Rule",
     "category": "Function",
     "text": "Classic RK4 3/8's rule method.\n\n\n\n"
@@ -722,7 +722,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructRKF4",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructRKF4",
     "category": "Function",
     "text": "Runge-Kutta-Fehberg Order 4/3\n\n\n\n"
@@ -730,7 +730,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructRKF5",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructRKF5",
     "category": "Function",
     "text": "Runge-Kutta-Fehlberg Order 4/5 method.\n\n\n\n"
@@ -738,7 +738,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructCashKarp",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructCashKarp",
     "category": "Function",
     "text": "constructCashKarp()\n\nConstructs the tableau object for the Cash-Karp Order 4/5 method.\n\n\n\n"
@@ -746,7 +746,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#OrdinaryDiffEq.constructDormandPrince",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "OrdinaryDiffEq.constructDormandPrince",
     "category": "Function",
     "text": "constructDormandPrince()\n\nConstructs the tableau object for the Dormand-Prince Order 4/5 method.\n\n\n\n"
@@ -754,7 +754,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#OrdinaryDiffEq.constructBS5",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "OrdinaryDiffEq.constructBS5",
     "category": "Function",
     "text": "An Efficient Runge-Kutta (4,5) Pair by P.Bogacki and L.F.Shampine  Computers and Mathematics with Applications, Vol. 32, No. 6, 1996, pages 15 to 28\n\n\n\n"
@@ -762,7 +762,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructPapakostasPapaGeorgiou5",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructPapakostasPapaGeorgiou5",
     "category": "Function",
     "text": "S.N. Papakostas and G. PapaGeorgiou higher error more stable\n\nA Family of Fifth-order Runge-Kutta Pairs, by S.N. Papakostas and G. PapaGeorgiou,  Mathematics of Computation,Volume 65, Number 215, July 1996, Pages 1165-1181.\n\n\n\n"
@@ -770,7 +770,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructPapakostasPapaGeorgiou52",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructPapakostasPapaGeorgiou52",
     "category": "Function",
     "text": "S.N. Papakostas and G. PapaGeorgiou less stable lower error  Strictly better than DP5\n\nA Family of Fifth-order Runge-Kutta Pairs, by S.N. Papakostas and G. PapaGeorgiou,  Mathematics of Computation,Volume 65, Number 215, July 1996, Pages 1165-1181.\n\n\n\n"
@@ -778,7 +778,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructTsitouras5",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructTsitouras5",
     "category": "Function",
     "text": "Runge–Kutta pairs of orders 5(4) using the minimal set of simplifying assumptions,  by Ch. Tsitouras, TEI of Chalkis, Dept. of Applied Sciences, GR34400, Psahna, Greece.\n\n\n\n"
@@ -786,7 +786,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructLutherKonen5",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructLutherKonen5",
     "category": "Function",
     "text": "Luther and Konen's First Order 5 Some Fifth-Order Classical Runge Kutta Formulas, H.A.Luther and H.P.Konen,  Siam Review, Vol. 3, No. 7, (Oct., 1965) pages 551-558.\n\n\n\n"
@@ -794,7 +794,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructLutherKonen52",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructLutherKonen52",
     "category": "Function",
     "text": "Luther and Konen's Second Order 5 Some Fifth-Order Classical Runge Kutta Formulas, H.A.Luther and H.P.Konen,  Siam Review, Vol. 3, No. 7, (Oct., 1965) pages 551-558.\n\n\n\n"
@@ -802,7 +802,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructLutherKonen53",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructLutherKonen53",
     "category": "Function",
     "text": "Luther and Konen's Third Order 5 Some Fifth-Order Classical Runge Kutta Formulas, H.A.Luther and H.P.Konen,  Siam Review, Vol. 3, No. 7, (Oct., 1965) pages 551-558.\n\n\n\n"
@@ -810,7 +810,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructRungeFirst5",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructRungeFirst5",
     "category": "Function",
     "text": "Runge's First Order 5 method\n\n\n\n"
@@ -818,7 +818,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructLawson5",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructLawson5",
     "category": "Function",
     "text": "Lawson's 5th order scheme\n\nAn Order Five Runge Kutta Process with Extended Region of Stability, J. Douglas Lawson,  Siam Journal on Numerical Analysis, Vol. 3, No. 4, (Dec., 1966) pages 593-597\n\n\n\n"
@@ -826,7 +826,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructSharpSmart5",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructSharpSmart5",
     "category": "Function",
     "text": "Explicit Runge-Kutta Pairs with One More Derivative Evaluation than the Minimum, by P.W.Sharp and E.Smart,  Siam Journal of Scientific Computing, Vol. 14, No. 2, pages. 338-348, March 1993.\n\n\n\n"
@@ -834,7 +834,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructBogakiShampine5",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructBogakiShampine5",
     "category": "Function",
     "text": "An Efficient Runge-Kutta (4,5) Pair by P.Bogacki and L.F.Shampine  Computers and Mathematics with Applications, Vol. 32, No. 6, 1996, pages 15 to 28\n\n\n\n"
@@ -842,7 +842,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructCassity5",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructCassity5",
     "category": "Function",
     "text": "Cassity's Order 5 method\n\n\n\n"
@@ -850,7 +850,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructButcher6",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructButcher6",
     "category": "Function",
     "text": "Butcher's First Order 6 method\n\nOn Runge-Kutta Processes of High Order, by J. C. Butcher,  Journal of the Australian Mathematical Society, Vol. 4, (1964), pages 179 to 194\n\n\n\n"
@@ -858,7 +858,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructButcher62",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructButcher62",
     "category": "Function",
     "text": "Butcher's Second Order 6 method\n\nOn Runge-Kutta Processes of High Order, by J. C. Butcher,  Journal of the Australian Mathematical Society, Vol. 4, (1964), pages 179 to 194\n\n\n\n"
@@ -866,7 +866,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructButcher63",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructButcher63",
     "category": "Function",
     "text": "Butcher's Third Order 6\n\nOn Runge-Kutta Processes of High Order, by J. C. Butcher,  Journal of the Australian Mathematical Society, Vol. 4, (1964), pages 179 to 194\n\n\n\n"
@@ -874,7 +874,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructVernerRobust6",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructVernerRobust6",
     "category": "Function",
     "text": "From Verner's Website\n\n\n\n"
@@ -882,7 +882,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructTanakaKasugaYamashitaYazaki6A",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructTanakaKasugaYamashitaYazaki6A",
     "category": "Function",
     "text": "TanakaKasugaYamashitaYazaki Order 6 A\n\nOn the Optimization of Some Eight-stage Sixth-order Explicit Runge-Kutta Method,  by M. Tanaka, K. Kasuga, S. Yamashita and H. Yazaki,  Journal of the Information Processing Society of Japan, Vol. 34, No. 1 (1993), pages 62 to 74.\n\n\n\n"
@@ -890,7 +890,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructTanakaKasugaYamashitaYazaki6B",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructTanakaKasugaYamashitaYazaki6B",
     "category": "Function",
     "text": "constructTanakaKasugaYamashitaYazaki Order 6 B\n\nOn the Optimization of Some Eight-stage Sixth-order Explicit Runge-Kutta Method,  by M. Tanaka, K. Kasuga, S. Yamashita and H. Yazaki,  Journal of the Information Processing Society of Japan, Vol. 34, No. 1 (1993), pages 62 to 74.\n\n\n\n"
@@ -898,7 +898,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructTanakaKasugaYamashitaYazaki6C",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructTanakaKasugaYamashitaYazaki6C",
     "category": "Function",
     "text": "constructTanakaKasugaYamashitaYazaki Order 6 C\n\nOn the Optimization of Some Eight-stage Sixth-order Explicit Runge-Kutta Method,  by M. Tanaka, K. Kasuga, S. Yamashita and H. Yazaki,  Journal of the Information Processing Society of Japan, Vol. 34, No. 1 (1993), pages 62 to 74.\n\n\n\n"
@@ -906,7 +906,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructTanakaKasugaYamashitaYazaki6D",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructTanakaKasugaYamashitaYazaki6D",
     "category": "Function",
     "text": "constructTanakaKasugaYamashitaYazaki Order 6 D\n\nOn the Optimization of Some Eight-stage Sixth-order Explicit Runge-Kutta Method,  by M. Tanaka, K. Kasuga, S. Yamashita and H. Yazaki,  Journal of the Information Processing Society of Japan, Vol. 34, No. 1 (1993), pages 62 to 74.\n\n\n\n"
@@ -914,7 +914,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructHuta6",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructHuta6",
     "category": "Function",
     "text": "Anton Hutas First Order 6 method\n\nUne amélioration de la méthode de Runge-Kutta-Nyström pour la résolution numérique des équations différentielles du premièr ordre, by Anton Huta, Acta Fac. Nat. Univ. Comenian Math., Vol. 1, pages 201-224 (1956).\n\n\n\n"
@@ -922,7 +922,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructHuta62",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructHuta62",
     "category": "Function",
     "text": "Anton Hutas Second Order 6 method\n\nUne amélioration de la méthode de Runge-Kutta-Nyström pour la résolution numérique des équations différentielles du premièr ordre, by Anton Huta, Acta Fac. Nat. Univ. Comenian Math., Vol. 1, pages 201-224 (1956).\n\n\n\n"
@@ -930,7 +930,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructVerner6",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructVerner6",
     "category": "Function",
     "text": "Verner Order 5/6 method\n\nA Contrast of a New RK56 pair with DP56, by Jim Verner,  Department of Mathematics. Simon Fraser University, Burnaby, Canada, 2006.\n\n\n\n"
@@ -938,7 +938,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructDormandPrince6",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructDormandPrince6",
     "category": "Function",
     "text": "Dormand-Prince Order 5//6 method\n\nP.J. Prince and J. R. Dormand, High order embedded Runge-Kutta formulae, Journal of Computational and Applied Mathematics . 7 (1981), pp. 67-75.\n\n\n\n"
@@ -946,7 +946,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructSharpVerner6",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructSharpVerner6",
     "category": "Function",
     "text": "Sharp-Verner Order 5/6 method\n\nCompletely Imbedded Runge-Kutta Pairs, by P. W. Sharp and J. H. Verner,  SIAM Journal on Numerical Analysis, Vol. 31, No. 4. (Aug., 1994), pages. 1169 to 1190.\n\n\n\n"
@@ -954,7 +954,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#OrdinaryDiffEq.constructVern6",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "OrdinaryDiffEq.constructVern6",
     "category": "Function",
     "text": "From Verner's Website\n\n\n\n"
@@ -962,7 +962,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructClassicVerner6",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructClassicVerner6",
     "category": "Function",
     "text": "EXPLICIT RUNGE-KUTFA METHODS WITH ESTIMATES OF THE LOCAL TRUNCATION ERROR\n\n\n\n"
@@ -970,7 +970,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructChummund6",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructChummund6",
     "category": "Function",
     "text": "Chummund's First Order 6 method\n\nA three-dimensional family of seven-step Runge-Kutta methods of order 6, by G. M. Chammud (Hammud), Numerical Methods and programming, 2001, Vol.2, 2001, pages 159-166 (Advanced Computing Scientific journal published by the Research Computing Center of the Lomonosov Moscow State Univeristy)\n\n\n\n"
@@ -978,7 +978,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructChummund62",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructChummund62",
     "category": "Function",
     "text": "Chummund's Second Order 6 method\n\nA three-dimensional family of seven-step Runge-Kutta methods of order 6, by G. M. Chammud (Hammud), Numerical Methods and programming, 2001, Vol.2, 2001, pages 159-166 (Advanced Computing Scientific journal published by the Research Computing Center of the Lomonosov Moscow State Univeristy)\n\n\n\n"
@@ -986,7 +986,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructPapakostas6",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructPapakostas6",
     "category": "Function",
     "text": "Papakostas's Order 6\n\nOn Phase-Fitted modified Runge-Kutta Pairs of order 6(5), by Ch. Tsitouras and I. Th. Famelis,  International Conference of Numerical Analysis and Applied Mathematics, Crete, (2006)\n\n\n\n"
@@ -994,7 +994,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructLawson6",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructLawson6",
     "category": "Function",
     "text": "Lawson's Order 6\n\nAn Order 6 Runge-Kutta Process with an Extended Region of Stability, by J. D. Lawson,  Siam Journal on Numerical Analysis, Vol. 4, No. 4 (Dec. 1967) pages 620-625.\n\n\n\n"
@@ -1002,7 +1002,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructTsitourasPapakostas6",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructTsitourasPapakostas6",
     "category": "Function",
     "text": "Tsitouras-Papakostas's Order 6\n\nCheap Error Estimation for Runge-Kutta methods, by Ch. Tsitouras and S.N. Papakostas, Siam Journal on Scientific Computing, Vol. 20, Issue 6, Nov 1999.\n\n\n\n"
@@ -1010,7 +1010,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructDormandLockyerMcCorriganPrince6",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructDormandLockyerMcCorriganPrince6",
     "category": "Function",
     "text": "DormandLockyerMcCorriganPrince Order 6 Global Error Estimation\n\nGlobal Error estimation with Runge-Kutta triples, by J.R.Dormand, M.A.Lockyer, N.E.McCorrigan and P.J.Prince,  Computers and Mathematics with Applications, 18 (1989) pages 835-846.\n\n\n\n"
@@ -1018,7 +1018,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructVernerEfficient6",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructVernerEfficient6",
     "category": "Function",
     "text": "From Verner's Website\n\n\n\n"
@@ -1026,7 +1026,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructMikkawyEisa",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructMikkawyEisa",
     "category": "Function",
     "text": "Mikkawy-Eisa Order 6\n\nA general four-parameter non-FSAL embedded Runge–Kutta algorithm of orders 6 and 4 in seven stages,  by M.E.A. El-Mikkawy and M.M.M. Eisa,  Applied Mathematics and Computation, Vol. 143, No. 2, (2003) pages 259 to 267.\n\n\n\n"
@@ -1034,7 +1034,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructVernerEfficient7",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructVernerEfficient7",
     "category": "Function",
     "text": "From Verner's website\n\n\n\n"
@@ -1042,7 +1042,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructClassicVerner7",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructClassicVerner7",
     "category": "Function",
     "text": "EXPLICIT RUNGE-KUTFA METHODS WITH ESTIMATES OF THE LOCAL TRUNCATION ERROR\n\n\n\n"
@@ -1050,7 +1050,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructSharpVerner7",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructSharpVerner7",
     "category": "Function",
     "text": "Completely Imbedded Runge-Kutta Pairs, by P.W.Sharp and J.H.Verner, Siam Journal on Numerical Analysis, Vol.31, No.4. (August 1994) pages 1169-1190.\n\n\n\n"
@@ -1058,7 +1058,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructTanakaYamashitaStable7",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructTanakaYamashitaStable7",
     "category": "Function",
     "text": "On the Optimization of Some Nine-Stage Seventh-order Runge-Kutta Method, by M. Tanaka, S. Muramatsu and S. Yamashita, Information Processing Society of Japan, Vol. 33, No. 12 (1992) pages 1512-1526.\n\n\n\n"
@@ -1066,7 +1066,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructSharpSmart7",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructSharpSmart7",
     "category": "Function",
     "text": "Explicit Runge-Kutta Pairs with One More Derivative Evaluation than the Minimum, by P.W.Sharp and E.Smart,  Siam Journal of Scientific Computing, Vol. 14, No. 2, pages. 338-348, March 1993.\n\n\n\n"
@@ -1074,7 +1074,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructTanakaYamashitaEfficient7",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructTanakaYamashitaEfficient7",
     "category": "Function",
     "text": "On the Optimization of Some Nine-Stage Seventh-order Runge-Kutta Method, by M. Tanaka, S. Muramatsu and S. Yamashita, Information Processing Society of Japan, Vol. 33, No. 12 (1992) pages 1512-1526.\n\n\n\n"
@@ -1082,7 +1082,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructVernerRobust7",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructVernerRobust7",
     "category": "Function",
     "text": "From Verner's website\n\n\n\n"
@@ -1090,7 +1090,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#OrdinaryDiffEq.constructTanYam7",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "OrdinaryDiffEq.constructTanYam7",
     "category": "Function",
     "text": "On the Optimization of Some Nine-Stage Seventh-order Runge-Kutta Method, by M. Tanaka, S. Muramatsu and S. Yamashita, Information Processing Society of Japan, Vol. 33, No. 12 (1992) pages 1512-1526.\n\n\n\n"
@@ -1098,7 +1098,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructEnrightVerner7",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructEnrightVerner7",
     "category": "Function",
     "text": "The Relative Efficiency of Alternative Defect Control Schemes for High-Order Continuous Runge-Kutta Formulas  W. H. Enright SIAM Journal on Numerical Analysis, Vol. 30, No. 5. (Oct., 1993), pp. 1419-1445.\n\n\n\n"
@@ -1106,7 +1106,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructDormandPrince8",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructDormandPrince8",
     "category": "Function",
     "text": "constructDormandPrice8()\n\nConstructs the tableau object for the Dormand-Prince Order 6/8 method.\n\n\n\n"
@@ -1114,7 +1114,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructRKF8",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructRKF8",
     "category": "Function",
     "text": "constructRKF8()\n\nConstructs the tableau object for the Runge-Kutta-Fehlberg Order 7/8 method.\n\n\n\n"
@@ -1122,7 +1122,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructCooperVerner8",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructCooperVerner8",
     "category": "Function",
     "text": "Some Explicit Runge-Kutta Methods of High Order, by G. J. Cooper and J. H. Verner,  SIAM Journal on Numerical Analysis, Vol. 9, No. 3, (September 1972), pages 389 to 405\n\n\n\n"
@@ -1130,7 +1130,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructCooperVerner82",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructCooperVerner82",
     "category": "Function",
     "text": "Some Explicit Runge-Kutta Methods of High Order, by G. J. Cooper and J. H. Verner,  SIAM Journal on Numerical Analysis, Vol. 9, No. 3, (September 1972), pages 389 to 405\n\n\n\n"
@@ -1138,7 +1138,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructTsitourasPapakostas8",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructTsitourasPapakostas8",
     "category": "Function",
     "text": "Cheap Error Estimation for Runge-Kutta methods, by Ch. Tsitouras and S.N. Papakostas,  Siam Journal on Scientific Computing, Vol. 20, Issue 6, Nov 1999.\n\n\n\n"
@@ -1146,7 +1146,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructEnrightVerner8",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructEnrightVerner8",
     "category": "Function",
     "text": "The Relative Efficiency of Alternative Defect Control Schemes for High-Order Continuous Runge-Kutta Formulas  W. H. Enright SIAM Journal on Numerical Analysis, Vol. 30, No. 5. (Oct., 1993), pp. 1419-1445.\n\n\n\n"
@@ -1154,7 +1154,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructdverk78",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructdverk78",
     "category": "Function",
     "text": "Jim Verner's \"Maple\" (dverk78)\n\n\n\n"
@@ -1162,7 +1162,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructClassicVerner8",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructClassicVerner8",
     "category": "Function",
     "text": "EXPLICIT RUNGE-KUTFA METHODS WITH ESTIMATES OF THE LOCAL TRUNCATION ERROR\n\n\n\n"
@@ -1170,7 +1170,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructDormandPrince8_64bit",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructDormandPrince8_64bit",
     "category": "Function",
     "text": "constructDormandPrice8_64bit()\n\nConstructs the tableau object for the Dormand-Prince Order 6/8 method with the approximated coefficients from the paper. This works until below 64-bit precision.\n\n\n\n"
@@ -1178,7 +1178,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructCurtis8",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructCurtis8",
     "category": "Function",
     "text": "An Eighth Order Runge-Kutta process with Eleven Function Evaluations per Step, by A. R. Curtis,  Numerische Mathematik, Vol. 16, No. 3 (1970), pages 268 to 277\n\n\n\n"
@@ -1186,7 +1186,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#OrdinaryDiffEq.constructTsitPap8",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "OrdinaryDiffEq.constructTsitPap8",
     "category": "Function",
     "text": "Cheap Error Estimation for Runge-Kutta methods, by Ch. Tsitouras and S.N. Papakostas,  Siam Journal on Scientific Computing, Vol. 20, Issue 6, Nov 1999.\n\n\n\n"
@@ -1194,7 +1194,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructSharp9",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructSharp9",
     "category": "Function",
     "text": "Journal of Applied Mathematics & Decision Sciences, 4(2), 183-192 (2000),  \"High order explicit Runge-Kutta pairs for ephemerides of the Solar System and the Moon\".\n\n\n\n"
@@ -1202,7 +1202,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructTsitouras9",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructTsitouras9",
     "category": "Function",
     "text": "Optimized explicit Runge-Kutta pairs of order 9(8), by Ch. Tsitouras,  Applied Numerical Mathematics, 38 (2001) 123-134.\n\n\n\n"
@@ -1210,7 +1210,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructTsitouras92",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructTsitouras92",
     "category": "Function",
     "text": "Optimized explicit Runge-Kutta pairs of order 9(8), by Ch. Tsitouras,  Applied Numerical Mathematics, 38 (2001) 123-134.\n\n\n\n"
@@ -1218,7 +1218,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructVernerEfficient9",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructVernerEfficient9",
     "category": "Function",
     "text": "From Verner's Webiste\n\n\n\n"
@@ -1226,7 +1226,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#OrdinaryDiffEq.constructVern9",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "OrdinaryDiffEq.constructVern9",
     "category": "Function",
     "text": "From Verner's Webiste\n\n\n\n"
@@ -1234,7 +1234,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructVerner916",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructVerner916",
     "category": "Function",
     "text": "Verner 1991 First Order 5/6 method\n\nSome Ruge-Kutta Formula Pairs, by J.H.Verner,  SIAM Journal on Numerical Analysis, Vol. 28, No. 2 (April 1991), pages 496 to 511.\n\n\n\n"
@@ -1242,7 +1242,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructVerner9162",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructVerner9162",
     "category": "Function",
     "text": "Verner 1991 Second Order 5/6 method\n\nSome Ruge-Kutta Formula Pairs, by J.H.Verner,  SIAM Journal on Numerical Analysis, Vol. 28, No. 2 (April 1991), pages 496 to 511.\n\n\n\n"
@@ -1250,7 +1250,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructVernerRobust9",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructVernerRobust9",
     "category": "Function",
     "text": "From Verner's Webiste\n\n\n\n"
@@ -1258,7 +1258,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#OrdinaryDiffEq.constructFeagin10",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "OrdinaryDiffEq.constructFeagin10",
     "category": "Function",
     "text": "constructFeagin10\n\n\n\n"
@@ -1266,7 +1266,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructFeagin10Tableau",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructFeagin10Tableau",
     "category": "Function",
     "text": "Feagin10 in Tableau form\n\n\n\n"
@@ -1274,7 +1274,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructOno10",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructOno10",
     "category": "Function",
     "text": "Ono10\n\n\n\n"
@@ -1282,7 +1282,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructCurtis10",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructCurtis10",
     "category": "Function",
     "text": "High-order Explicit Runge-Kutta Formulae, Their uses, and Limitations, A.R.Curtis, J. Inst. Maths Applics (1975) 16, 35-55.\n\n\n\n"
@@ -1290,7 +1290,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructHairer10",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructHairer10",
     "category": "Function",
     "text": "A Runge-Kutta Method of Order 10, E. Hairer, J. Inst. Maths Applics (1978) 21, 47-59.\n\n\n\n"
@@ -1298,7 +1298,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructBaker10",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructBaker10",
     "category": "Function",
     "text": "Tom Baker, University of Teeside. Part of RK-Aid http://www.scm.tees.ac.uk/users/u0000251/research/researcht.htm http://www.scm.tees.ac.uk/users/u0000251/j.r.dormand/t.baker/rk10921m/rk10921m\n\n\n\n"
@@ -1306,7 +1306,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#OrdinaryDiffEq.constructFeagin12",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "OrdinaryDiffEq.constructFeagin12",
     "category": "Function",
     "text": "constructFeagin12\n\n\n\n"
@@ -1314,7 +1314,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructOno12",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructOno12",
     "category": "Function",
     "text": "On the 25 stage 12th order explicit Runge-Kutta method, by Hiroshi Ono. Transactions of the Japan Society for Industrial and applied Mathematics, Vol. 6, No. 3, (2006) pages 177 to 186\n\n\n\n"
@@ -1322,7 +1322,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructFeagin12Tableau",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructFeagin12Tableau",
     "category": "Function",
     "text": "Tableau form of Feagin12\n\n\n\n"
@@ -1330,7 +1330,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#OrdinaryDiffEq.constructFeagin14",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "OrdinaryDiffEq.constructFeagin14",
     "category": "Function",
     "text": "constructFeagin14\n\n\n\n"
@@ -1338,7 +1338,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructFeagin14Tableau",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructFeagin14Tableau",
     "category": "Function",
     "text": "Tableau form of Feagin14\n\n\n\n"
@@ -1346,7 +1346,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#Explicit-Tableaus-1",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "Explicit Tableaus",
     "category": "section",
     "text": "DiffEqDevTools.constructEuler\nDiffEqDevTools.constructRalston\nDiffEqDevTools.constructHeun\nDiffEqDevTools.constructKutta3\nOrdinaryDiffEq.constructBS3\nDiffEqDevTools.constructBogakiShampine3\nDiffEqDevTools.constructRK4\nDiffEqDevTools.constructRK438Rule\nDiffEqDevTools.constructRKF4\nDiffEqDevTools.constructRKF5\nDiffEqDevTools.constructCashKarp\nDiffEqDevTools.constructDormandPrince\nOrdinaryDiffEq.constructBS5\nDiffEqDevTools.constructPapakostasPapaGeorgiou5\nDiffEqDevTools.constructPapakostasPapaGeorgiou52\nDiffEqDevTools.constructTsitouras5\nDiffEqDevTools.constructLutherKonen5\nDiffEqDevTools.constructLutherKonen52\nDiffEqDevTools.constructLutherKonen53\nDiffEqDevTools.constructRungeFirst5\nDiffEqDevTools.constructLawson5\nDiffEqDevTools.constructSharpSmart5\nDiffEqDevTools.constructBogakiShampine5\nDiffEqDevTools.constructCassity5\nDiffEqDevTools.constructButcher6\nDiffEqDevTools.constructButcher62\nDiffEqDevTools.constructButcher63\nDiffEqDevTools.constructVernerRobust6\nDiffEqDevTools.constructTanakaKasugaYamashitaYazaki6A\nDiffEqDevTools.constructTanakaKasugaYamashitaYazaki6B\nDiffEqDevTools.constructTanakaKasugaYamashitaYazaki6C\nDiffEqDevTools.constructTanakaKasugaYamashitaYazaki6D\nDiffEqDevTools.constructHuta6\nDiffEqDevTools.constructHuta62\nDiffEqDevTools.constructVerner6\nDiffEqDevTools.constructDormandPrince6\nDiffEqDevTools.constructSharpVerner6\nDiffEqDevTools.constructVern6\nDiffEqDevTools.constructClassicVerner6\nDiffEqDevTools.constructChummund6\nDiffEqDevTools.constructChummund62\nDiffEqDevTools.constructPapakostas6\nDiffEqDevTools.constructLawson6\nDiffEqDevTools.constructTsitourasPapakostas6\nDiffEqDevTools.constructDormandLockyerMcCorriganPrince6\nDiffEqDevTools.constructVernerEfficient6\nDiffEqDevTools.constructMikkawyEisa\nDiffEqDevTools.constructVernerEfficient7\nDiffEqDevTools.constructClassicVerner7\nDiffEqDevTools.constructSharpVerner7\nDiffEqDevTools.constructTanakaYamashitaStable7\nDiffEqDevTools.constructSharpSmart7\nDiffEqDevTools.constructTanakaYamashitaEfficient7\nDiffEqDevTools.constructVernerRobust7\nOrdinaryDiffEq.constructTanYam7\nDiffEqDevTools.constructEnrightVerner7\nDiffEqDevTools.constructDormandPrince8\nDiffEqDevTools.constructRKF8\nDiffEqDevTools.constructCooperVerner8\nDiffEqDevTools.constructCooperVerner82\nDiffEqDevTools.constructTsitourasPapakostas8\nDiffEqDevTools.constructEnrightVerner8\nDiffEqDevTools.constructdverk78\nDiffEqDevTools.constructClassicVerner8\nDiffEqDevTools.constructDormandPrince8_64bit\nDiffEqDevTools.constructCurtis8\nOrdinaryDiffEq.constructTsitPap8\nDiffEqDevTools.constructSharp9\nDiffEqDevTools.constructTsitouras9\nDiffEqDevTools.constructTsitouras92\nDiffEqDevTools.constructVernerEfficient9\nOrdinaryDiffEq.constructVern9\nDiffEqDevTools.constructVerner916\nDiffEqDevTools.constructVerner9162\nDiffEqDevTools.constructVernerRobust9\nDiffEqDevTools.constructFeagin10\nDiffEqDevTools.constructFeagin10Tableau\nDiffEqDevTools.constructOno10\nDiffEqDevTools.constructCurtis10\nDiffEqDevTools.constructHairer10\nDiffEqDevTools.constructBaker10\nDiffEqDevTools.constructFeagin12\nDiffEqDevTools.constructOno12\nDiffEqDevTools.constructFeagin12Tableau\nDiffEqDevTools.constructFeagin14\nDiffEqDevTools.constructFeagin14Tableau"
@@ -1354,7 +1354,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructImplicitEuler",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructImplicitEuler",
     "category": "Function",
     "text": "Implicit Euler Method\n\n\n\n"
@@ -1362,7 +1362,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructMidpointRule",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructMidpointRule",
     "category": "Function",
     "text": "Order 2 Midpoint Method\n\n\n\n"
@@ -1370,7 +1370,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructTrapezoidalRule",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructTrapezoidalRule",
     "category": "Function",
     "text": "Order 2 Trapezoidal Rule (LobattoIIIA2)\n\n\n\n"
@@ -1378,7 +1378,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructLobattoIIIA4",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructLobattoIIIA4",
     "category": "Function",
     "text": "LobattoIIIA Order 4 method\n\n\n\n"
@@ -1386,7 +1386,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructLobattoIIIB2",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructLobattoIIIB2",
     "category": "Function",
     "text": "LobattoIIIB Order 2 method\n\n\n\n"
@@ -1394,7 +1394,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructLobattoIIIB4",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructLobattoIIIB4",
     "category": "Function",
     "text": "LobattoIIIB Order 4 method\n\n\n\n"
@@ -1402,7 +1402,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructLobattoIIIC2",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructLobattoIIIC2",
     "category": "Function",
     "text": "LobattoIIIC Order 2 method\n\n\n\n"
@@ -1410,7 +1410,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructLobattoIIIC4",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructLobattoIIIC4",
     "category": "Function",
     "text": "LobattoIIIC Order 4 method\n\n\n\n"
@@ -1418,7 +1418,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructLobattoIIICStar2",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructLobattoIIICStar2",
     "category": "Function",
     "text": "LobattoIIIC* Order 2 method\n\n\n\n"
@@ -1426,7 +1426,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructLobattoIIICStar4",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructLobattoIIICStar4",
     "category": "Function",
     "text": "LobattoIIIC* Order 4 method\n\n\n\n"
@@ -1434,7 +1434,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructLobattoIIID2",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructLobattoIIID2",
     "category": "Function",
     "text": "LobattoIIID Order 2 method\n\n\n\n"
@@ -1442,7 +1442,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructLobattoIIID4",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructLobattoIIID4",
     "category": "Function",
     "text": "LobattoIIID Order 4 method\n\n\n\n"
@@ -1450,7 +1450,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructGL2",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructGL2",
     "category": "Function",
     "text": "Gauss-Legendre Order 2.\n\n\n\n"
@@ -1458,7 +1458,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructGL4",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructGL4",
     "category": "Function",
     "text": "Gauss-Legendre Order 4.\n\n\n\n"
@@ -1466,7 +1466,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructGL6",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructGL6",
     "category": "Function",
     "text": "Gauss-Legendre Order 6.\n\n\n\n"
@@ -1474,7 +1474,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructRadauIA3",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructRadauIA3",
     "category": "Function",
     "text": "RadauIA Order 3 method\n\n\n\n"
@@ -1482,7 +1482,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructRadauIA5",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructRadauIA5",
     "category": "Function",
     "text": "RadauIA Order 5 method\n\n\n\n"
@@ -1490,7 +1490,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructRadauIIA3",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructRadauIIA3",
     "category": "Function",
     "text": "RadauIIA Order 3 method\n\n\n\n"
@@ -1498,7 +1498,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#DiffEqDevTools.constructRadauIIA5",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "DiffEqDevTools.constructRadauIIA5",
     "category": "Function",
     "text": "RadauIIA Order 5 method\n\n\n\n"
@@ -1506,7 +1506,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/tableaus.html#Implicit-Tableaus-1",
-    "page": "-",
+    "page": "ODE Tableaus",
     "title": "Implicit Tableaus",
     "category": "section",
     "text": "DiffEqDevTools.constructImplicitEuler\nDiffEqDevTools.constructMidpointRule\nDiffEqDevTools.constructTrapezoidalRule\nDiffEqDevTools.constructLobattoIIIA4\nDiffEqDevTools.constructLobattoIIIB2\nDiffEqDevTools.constructLobattoIIIB4\nDiffEqDevTools.constructLobattoIIIC2\nDiffEqDevTools.constructLobattoIIIC4\nDiffEqDevTools.constructLobattoIIICStar2\nDiffEqDevTools.constructLobattoIIICStar4\nDiffEqDevTools.constructLobattoIIID2\nDiffEqDevTools.constructLobattoIIID4\nDiffEqDevTools.constructGL2\nDiffEqDevTools.constructGL4\nDiffEqDevTools.constructGL6\nDiffEqDevTools.constructRadauIA3\nDiffEqDevTools.constructRadauIA5\nDiffEqDevTools.constructRadauIIA3\nDiffEqDevTools.constructRadauIIA5"
