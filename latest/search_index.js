@@ -53,7 +53,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Home",
     "title": "Internal Documentation",
     "category": "section",
-    "text": "Pages = [\n  \"internals/solver_helpers.md\",\n  \"internals/tableaus.md\",\n  \"internals/fem_tools.md\",\n  \"internals/extras.md\",\n  \"internals/notes_on_algorithms.md\"\n]\nDepth = 2"
+    "text": "Pages = [\n  \"internals/fem_tools.md\",\n  \"internals/extras.md\",\n  \"internals/solver_helpers.md\",\n  \"internals/notes_on_algorithms.md\",\n  \"internals/tableaus.md\"\n]\nDepth = 2"
 },
 
 {
@@ -74,9 +74,17 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "contributing/adding_algorithms.html#",
-    "page": "-",
-    "title": "-",
+    "page": "Adding Algorithms",
+    "title": "Adding Algorithms",
     "category": "page",
+    "text": ""
+},
+
+{
+    "location": "contributing/adding_algorithms.html#Adding-Algorithms-1",
+    "page": "Adding Algorithms",
+    "title": "Adding Algorithms",
+    "category": "section",
     "text": ""
 },
 
@@ -298,15 +306,79 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/solver_helpers.html#",
-    "page": "-",
-    "title": "-",
+    "page": "Solver Extras",
+    "title": "Solver Extras",
     "category": "page",
     "text": ""
 },
 
 {
+    "location": "internals/solver_helpers.html#Solver-Extras-1",
+    "page": "Solver Extras",
+    "title": "Solver Extras",
+    "category": "section",
+    "text": ""
+},
+
+{
+    "location": "internals/solver_helpers.html#StochasticDiffEq.monteCarloSim",
+    "page": "Solver Extras",
+    "title": "StochasticDiffEq.monteCarloSim",
+    "category": "Function",
+    "text": "monteCarloSim(dt::Number,prob::SDEProblem)\n\nPerforms a parallel Monte-Carlo simulation to solve the SDE problem with dt numMonte times. Returns a vector of solution objects.\n\nKeyword Arguments\n\nT - Final time. Default is 1.\nnumMonte - Number of Monte-Carlo simulations to run. Default is 10000\nsave_timeseries - Denotes whether save_timeseries should be turned on in each run. Default is false.\n\n\n\n"
+},
+
+{
+    "location": "internals/solver_helpers.html#StochasticDiffEq.RosslerSRI",
+    "page": "Solver Extras",
+    "title": "StochasticDiffEq.RosslerSRI",
+    "category": "Type",
+    "text": "RosslerSRI\n\nHolds the Butcher tableaus for a Rosser SRI method.\n\n\n\n"
+},
+
+{
+    "location": "internals/solver_helpers.html#StochasticDiffEq.RosslerSRA",
+    "page": "Solver Extras",
+    "title": "StochasticDiffEq.RosslerSRA",
+    "category": "Type",
+    "text": "RosslerSRA\n\nHolds the Butcher tableaus for a Rosser SRA method.\n\n\n\n"
+},
+
+{
+    "location": "internals/solver_helpers.html#StochasticDiffEq.constructSRA1",
+    "page": "Solver Extras",
+    "title": "StochasticDiffEq.constructSRA1",
+    "category": "Function",
+    "text": "constructSRA1()\n\nConstructs the taleau type for the SRA1 method.\n\n\n\n"
+},
+
+{
+    "location": "internals/solver_helpers.html#StochasticDiffEq.constructSRIW1",
+    "page": "Solver Extras",
+    "title": "StochasticDiffEq.constructSRIW1",
+    "category": "Function",
+    "text": "constructSRIW1()\n\nConstructs the tableau type for the SRIW1 method.\n\n\n\n"
+},
+
+{
+    "location": "internals/solver_helpers.html#StochasticDiffEq.checkSRAOrder",
+    "page": "Solver Extras",
+    "title": "StochasticDiffEq.checkSRAOrder",
+    "category": "Function",
+    "text": "checkSRAOrder(RosslerSRI)\n\nDetermines whether the order conditions are met via the tableaus of the SRA method.\n\n\n\n"
+},
+
+{
+    "location": "internals/solver_helpers.html#StochasticDiffEq.checkSRIOrder",
+    "page": "Solver Extras",
+    "title": "StochasticDiffEq.checkSRIOrder",
+    "category": "Function",
+    "text": "checkSRIOrder(RosslerSRI)\n\nDetermines whether the order conditions are met via the tableaus of the SRI method.\n\n\n\n"
+},
+
+{
     "location": "internals/solver_helpers.html#SDE-Solver-Extras-1",
-    "page": "-",
+    "page": "Solver Extras",
     "title": "SDE Solver Extras",
     "category": "section",
     "text": "StochasticDiffEq.monteCarloSim\nStochasticDiffEq.RosslerSRI\nStochasticDiffEq.RosslerSRA\nStochasticDiffEq.constructSRA1\nStochasticDiffEq.constructSRIW1\nStochasticDiffEq.checkSRAOrder\nStochasticDiffEq.checkSRIOrder"
@@ -314,7 +386,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/solver_helpers.html#StokesDiffEq.GSδq!",
-    "page": "-",
+    "page": "Solver Extras",
     "title": "StokesDiffEq.GSδq!",
     "category": "Function",
     "text": "GSδq!(δq,rp,Δxs)\n\nPerforms a Gauss-Seidel iteration for δq.\n\n\n\n"
@@ -322,7 +394,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/solver_helpers.html#StokesDiffEq.GSu!",
-    "page": "-",
+    "page": "Solver Extras",
     "title": "StokesDiffEq.GSu!",
     "category": "Function",
     "text": "GSu!(u,f₁,Δxs,p,ugD,grids,ux,uy)\n\nPerforms a Gauss-Seidel iteration on u.\n\n\n\n"
@@ -330,7 +402,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/solver_helpers.html#StokesDiffEq.calc_rp!",
-    "page": "-",
+    "page": "Solver Extras",
     "title": "StokesDiffEq.calc_rp!",
     "category": "Function",
     "text": "calc_rp!(rp,u,v,Δxs,g,px,py)\n\nCalculates the rp from the u and v's.\n\n\n\n"
@@ -338,7 +410,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/solver_helpers.html#StokesDiffEq.update_p!",
-    "page": "-",
+    "page": "Solver Extras",
     "title": "StokesDiffEq.update_p!",
     "category": "Function",
     "text": "update_p!(p,δq,Δxs)\n\nUpdates p given δq\n\n\n\n"
@@ -346,7 +418,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/solver_helpers.html#StokesDiffEq.update_v!",
-    "page": "-",
+    "page": "Solver Extras",
     "title": "StokesDiffEq.update_v!",
     "category": "Function",
     "text": "update_v!(v,δq,Δxs)\n\nUpdates v given δq\n\n\n\n"
@@ -354,7 +426,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/solver_helpers.html#StokesDiffEq.uzawa_p!",
-    "page": "-",
+    "page": "Solver Extras",
     "title": "StokesDiffEq.uzawa_p!",
     "category": "Function",
     "text": "uzawa_p!(p,u,v,Δxs,g,px,py)\n\nSolves for p from u and v using an Uzawa update.\n\n\n\n"
@@ -362,7 +434,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/solver_helpers.html#StokesDiffEq.stokes_restriction",
-    "page": "-",
+    "page": "Solver Extras",
     "title": "StokesDiffEq.stokes_restriction",
     "category": "Function",
     "text": "stokes_restriction(u,v,p,Δxs,grids,mins,maxs,ugD,vgD)\n\nRestricts the Stokes problem to the coarsegrid.\n\n\n\n"
@@ -370,7 +442,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/solver_helpers.html#StokesDiffEq.stokes_prolongation",
-    "page": "-",
+    "page": "Solver Extras",
     "title": "StokesDiffEq.stokes_prolongation",
     "category": "Function",
     "text": "stokes_prolongation(u,v,p,Δxs,grids,mins,maxs,ugD,vgD)\n\nProlongates the Stokes problem to the fine grid\n\n\n\n"
@@ -378,7 +450,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/solver_helpers.html#StokesDiffEq.update_u!",
-    "page": "-",
+    "page": "Solver Extras",
     "title": "StokesDiffEq.update_u!",
     "category": "Function",
     "text": "update_u!(u,δq,Δxs)\n\nUpdates u given δq\n\n\n\n"
@@ -386,7 +458,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/solver_helpers.html#StokesDiffEq.GSv!",
-    "page": "-",
+    "page": "Solver Extras",
     "title": "StokesDiffEq.GSv!",
     "category": "Function",
     "text": "GSv!(v,f₂,Δxs,p,vgD,grids,vx,vy)\n\nPerforms a Gauss-Seidel iteration on v.\n\n\n\n"
@@ -394,7 +466,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "internals/solver_helpers.html#Stationary-Stokes-1",
-    "page": "-",
+    "page": "Solver Extras",
     "title": "Stationary Stokes",
     "category": "section",
     "text": "StokesDiffEq.GSδq!\nStokesDiffEq.GSu!\nStokesDiffEq.calc_rp!\nStokesDiffEq.update_p!\nStokesDiffEq.update_v!\nStokesDiffEq.uzawa_p!\nStokesDiffEq.stokes_restriction\nStokesDiffEq.stokes_prolongation\nStokesDiffEq.update_u!\nStokesDiffEq.GSv!"
