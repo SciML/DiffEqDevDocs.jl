@@ -62,9 +62,10 @@ have any questions on how to help, just ask them in the Gitter!
 
 ```@contents
 Pages = [
-  "contributing/contributors_guide.md",
+  "contributing/ecosystem_overview.md",
   "contributing/adding_algorithms.md",
   "contributing/defining_problems.md",
+  "contributing/diffeq_internals.md"
 ]
 Depth = 2
 ```
