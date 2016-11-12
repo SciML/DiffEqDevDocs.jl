@@ -56,6 +56,18 @@ Pages = [
 Depth = 2
 ```
 
+## Algorithm Development Tools
+
+The following algorithm development tools are provided by DiffEqDevTools.jl
+
+```@contents
+Pages = [
+  "alg_dev/convergence.md",
+  "alg_dev/benchmarks.md"
+]
+Depth = 2
+```
+
 ## Internal Documentation
 
 ```@contents

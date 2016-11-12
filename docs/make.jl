@@ -10,10 +10,14 @@ makedocs(modules=[DiffEqDevTools,DiffEqBase,FiniteElementDiffEq,StochasticDiffEq
          pages = Any[
          "Home" => "index.md",
          "Contributor Guide" => Any[
-           "contributing/contributors_guide.md",
+           "contributing/ecosystem_overview.md",
            "contributing/adding_algorithms.md",
            "contributing/defining_problems.md",
            "contributing/diffeq_internals.md"
+         ],
+         "Algorithm Development Tools" => Any[
+           "alg_dev/convergence.md",
+           "alg_dev/benchmarks.md"
          ],
          "Internal Documentation" => Any[
            "internals/fem_tools.md",
