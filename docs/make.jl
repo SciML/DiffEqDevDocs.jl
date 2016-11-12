@@ -5,7 +5,7 @@ makedocs(modules=[DiffEqDevTools,DiffEqBase,FiniteElementDiffEq,StochasticDiffEq
                   StokesDiffEq,OrdinaryDiffEq,DiffEqProblemLibrary],
          doctest=false, clean=true,
          format =:html,
-         sitename="DifferentialEquations.jl",
+         sitename="DiffEq Developer Documentation",
          authors="Chris Rackauckas",
          pages = Any[
          "Home" => "index.md",
@@ -18,7 +18,7 @@ makedocs(modules=[DiffEqDevTools,DiffEqBase,FiniteElementDiffEq,StochasticDiffEq
          "Algorithm Development Tools" => Any[
            "alg_dev/test_problems.md",
            "alg_dev/convergence.md",
-           "alg_dev/benchmarks.md"
+           "alg_dev/benchmarks.md",
            "alg_dev/approximate_error.md"
          ],
          "Internal Documentation" => Any[
