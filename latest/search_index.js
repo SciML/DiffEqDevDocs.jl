@@ -33,11 +33,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "index.html#Other-Help-1",
+    "location": "index.html#Helping-the-Ecosystem-1",
     "page": "Home",
-    "title": "Other Help",
+    "title": "Helping the Ecosystem",
     "category": "section",
-    "text": "Even if you don't have the time to contribute new solver algorithms, there's always ways to help! Improved plot recipes and new series recipes are always nice to add more default plots. It is always helpful to have benchmarks between different algorithms to see \"which is best\". Adding examples IJulia notebooks to DiffEqTutorials.jl is a good way to share knowledge about DifferentialEquations.jl. Also, please feel free to comb through the solvers and look for ways to make them more efficient. Lastly, the documentation could always use improvements. If you have any questions on how to help, just ask them in the Gitter!"
+    "text": "There are many ways to help the ecosystem. One way you can contribute is to give pull requests (PRs) to existing packages. Another way to contribute is to add your own package to the ecosystem. Adding your own package to the ecosystem allows you to keep executive control and licensing over your methods, but allows users of DifferentialEquations.jl to use your methods via the common interface, and makes your package compatible with the add-on tools (sensitivity analysis, parameter estimation, etc). Note that one is required to move their package to the JuliaDiffEq organization so that way common maintenance (such as fixing deprication warnings, updating tests to newer versions, and emergency fixes / disabling) can be allowed by JuliaDiffEq members. However, the lead developer of the package maintains administrative control, and thus any change to the core algorithms by other JuliaDiffEq members will only be given through PRs.Even if you don't have the time to contribute new solver algorithms or add-on tools, there's always ways to help! Improved plot recipes and new series recipes are always nice to add more default plots. It is always helpful to have benchmarks between different algorithms to see \"which is best\". Adding examples IJulia notebooks to DiffEqTutorials.jl is a good way to share knowledge about DifferentialEquations.jl. Also, please feel free to comb through the solvers and look for ways to make them more efficient. Lastly, the documentation could always use improvements. If you have any questions on how to help, just ask them in the Gitter!"
 },
 
 {
@@ -53,7 +53,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Home",
     "title": "Algorithm Development Tools",
     "category": "section",
-    "text": "The following algorithm development tools are provided by DiffEqDevTools.jlPages = [\n  \"alg_dev/convergence.md\",\n  \"alg_dev/benchmarks.md\"\n]\nDepth = 2"
+    "text": "The following algorithm development tools are provided by DiffEqDevTools.jlPages = [\n  \"alg_dev/test_problems.md\",\n  \"alg_dev/convergence.md\",\n  \"alg_dev/benchmarks.md\",\n  \"alg_dev/approximate_error.md\"\n]\nDepth = 2"
 },
 
 {
@@ -66,16 +66,16 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "contributing/ecosystem_overview.html#",
-    "page": "Contributor's Guide",
-    "title": "Contributor's Guide",
+    "page": "Ecosystem Overview",
+    "title": "Ecosystem Overview",
     "category": "page",
     "text": ""
 },
 
 {
-    "location": "contributing/ecosystem_overview.html#Contributor's-Guide-1",
-    "page": "Contributor's Guide",
-    "title": "Contributor's Guide",
+    "location": "contributing/ecosystem_overview.html#Ecosystem-Overview-1",
+    "page": "Ecosystem Overview",
+    "title": "Ecosystem Overview",
     "category": "section",
     "text": "So you're looking to help out DifferentialEquations.jl? We'd be happy to have your help. It is recommended you first discuss with some of the developers on the Gitter channel to make sure that you're up-to-date with current developments."
 },
@@ -142,6 +142,14 @@ var documenterSearchIndex = {"docs": [
     "title": "Extras",
     "category": "section",
     "text": "If the method is a FSAL method then it needs to be set via isfsal and fsalfirst should be defined before the loop, with fsallast what's pushed up to fsalfirst upon a successful step. See :DP5 for an example.It's usually wise to dispatch onto Number separately since that uses f(t,u) instead of f(t,u,du). The dispatch is chosen by setting the uType and rateType, usually to either <:Number or <:AbstractArray (though they should be the same).If tests fail due to units (i.e. Unitful), don't worry. I would be willing to fix that up. To do so, you have to make sure you keep separate your rateTypes and your uTypes since the rates from f will have units of u but divided by a unit of time. If you simply try to write these into u, the units part will fail (normally you have to multiply by a dt)."
+},
+
+{
+    "location": "alg_dev/test_problems.html#",
+    "page": "-",
+    "title": "-",
+    "category": "page",
+    "text": "If the solution was a TestProblem and thus has an analytical solution, we also havesol.u_analytic # timeseries of analytical solution\nsol.prob.analytic(t) # The analytic solution at time t"
 },
 
 {
@@ -302,6 +310,38 @@ var documenterSearchIndex = {"docs": [
     "title": "WorkPrecision",
     "category": "section",
     "text": "A WorkPrecision calculates the necessary componnets of a work-precision plot. This shows how time scales with the user chosen tolerances on a given problem. To make a WorkPrecision, you give it a vector of absolute and relative tolerances:abstols = 1./10.^(3:10)\nreltols = 1./10.^(3:10)\nwp = ode_workprecision(prob,tspan,abstols,reltols;alg=:DP5,name=\"Dormand-Prince 4/5\")If we want to plot many WorkPrecisions together in order to compare between algorithms, you can make a WorkPrecisionSet. To do so, you pass the setups into the function as well:wp_set = ode_workprecision_set(prob,tspan,abstols,reltols,setups;dt=1/2^4,numruns=2)\nsetups = [Dict(:alg=>:RK4);Dict(:alg=>:Euler);Dict(:alg=>:BS3);\n          Dict(:alg=>:Midpoint);Dict(:alg=>:BS5);Dict(:alg=>:DP5)]\nwp_set = ode_workprecision_set(prob,tspan,abstols,reltols,setups;dt=1/2^4,numruns=2)Both of these types have a plot recipe to produce a work-precision diagram, and a print which will show some relevant information."
+},
+
+{
+    "location": "alg_dev/approximate_error.html#",
+    "page": "-",
+    "title": "-",
+    "category": "page",
+    "text": ""
+},
+
+{
+    "location": "alg_dev/approximate_error.html#DiffEqDevTools.appxtrue!",
+    "page": "-",
+    "title": "DiffEqDevTools.appxtrue!",
+    "category": "Function",
+    "text": "appxtrue!(sol::FEMSolution,sol2::FEMSolution)\n\nAdds the solution from sol2 to the FEMSolution object sol. Useful to add a quasi-true solution when none is known by computing once at a very small time/space step and taking that solution as the \"true\" solution\n\n\n\n"
+},
+
+{
+    "location": "alg_dev/approximate_error.html#FiniteElementDiffEq.FEMSolutionTS",
+    "page": "-",
+    "title": "FiniteElementDiffEq.FEMSolutionTS",
+    "category": "Function",
+    "text": "S = FEMSolutionTS(timeseries::Vector{uType},numvars::Int)S[i][j]` => Variable i at time j.\n\n\n\n"
+},
+
+{
+    "location": "alg_dev/approximate_error.html#Related-Functions-1",
+    "page": "-",
+    "title": "Related Functions",
+    "category": "section",
+    "text": "DiffEqDevTools.appxtrue!\nFiniteElementDiffEq.FEMSolutionTS"
 },
 
 {
