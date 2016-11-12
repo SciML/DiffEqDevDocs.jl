@@ -45,7 +45,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Home",
     "title": "Contributor Guide",
     "category": "section",
-    "text": "Pages = [\n  \"contributing/contributors_guide.md\",\n  \"contributing/adding_algorithms.md\",\n  \"contributing/defining_problems.md\",\n]\nDepth = 2"
+    "text": "Pages = [\n  \"contributing/ecosystem_overview.md\",\n  \"contributing/adding_algorithms.md\",\n  \"contributing/defining_problems.md\",\n  \"contributing/diffeq_internals.md\"\n]\nDepth = 2"
 },
 
 {
