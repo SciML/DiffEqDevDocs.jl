@@ -16,8 +16,10 @@ makedocs(modules=[DiffEqDevTools,DiffEqBase,FiniteElementDiffEq,StochasticDiffEq
            "contributing/diffeq_internals.md"
          ],
          "Algorithm Development Tools" => Any[
+           "alg_dev/test_problems.md",
            "alg_dev/convergence.md",
            "alg_dev/benchmarks.md"
+           "alg_dev/approximate_error.md"
          ],
          "Internal Documentation" => Any[
            "internals/fem_tools.md",

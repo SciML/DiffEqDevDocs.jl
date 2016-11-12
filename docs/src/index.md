@@ -62,8 +62,10 @@ The following algorithm development tools are provided by DiffEqDevTools.jl
 
 ```@contents
 Pages = [
+  "alg_dev/test_problems.md",
   "alg_dev/convergence.md",
-  "alg_dev/benchmarks.md"
+  "alg_dev/benchmarks.md",
+  "alg_dev/approximate_error.md"
 ]
 Depth = 2
 ```
