@@ -34,7 +34,7 @@ meta_checkout("MetaDiffEq") # Checks out the master branch on all of the package
 Note that this is for power users who are familiar with Julia. If you are having
 issues, please contact Chris Rackauckas in  [the Gitter channel.](https://gitter.im/JuliaDiffEq/Lobby)
 
-### Helping the Ecosystem
+### Contributing to the Ecosystem
 
 There are many ways to help the ecosystem. One way you can contribute is to give
 pull requests (PRs) to existing packages. Another way to contribute is to add your
