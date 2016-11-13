@@ -53,7 +53,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Home",
     "title": "Algorithm Development Tools",
     "category": "section",
-    "text": "The following algorithm development tools are provided by DiffEqDevTools.jlPages = [\n  \"alg_dev/test_problems.md\",\n  \"alg_dev/convergence.md\",\n  \"alg_dev/benchmarks.md\",\n  \"alg_dev/approximate_error.md\"\n]\nDepth = 2"
+    "text": "The following algorithm development tools are provided by DiffEqDevTools.jlPages = [\n  \"alg_dev/test_problems.md\",\n  \"alg_dev/convergence.md\",\n  \"alg_dev/benchmarks.md\"\n]\nDepth = 2"
 },
 
 {
@@ -85,7 +85,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ecosystem Overview",
     "title": "The Common Interface",
     "category": "section",
-    "text": ""
+    "text": "The DiffEq ecosystem is built around the common interface. This is the interface for the solvers:solve(prob,alg;kwargs...)and the standard methods for dealing with solutions. Ecosystem builds problem types for solvers to act on, and add-on components which use the solution types for higher-level analysis like parameter estimation and sensitivity analysis.One can add components at any of these levels to improve the functionality of the system as a whole."
 },
 
 {
@@ -93,7 +93,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ecosystem Overview",
     "title": "Organizational Setup",
     "category": "section",
-    "text": ""
+    "text": "JuliaDiffEq is setup in a distributed manner to allow developers to retain authoritative control and licensing for their own packages/algorithms, yet contribute to the greater ecosystem. This gives a way for researchers to target a wide audience of users, but not have to fully contribute to public packages or be restricted in licensing. At the center of the ecosystem is DiffEqBase which holds the Problem, Solution, and Algorithm types (the algorithms are defined in DiffEqBase to be accessible by the default_algorithm function. One can opt out of this). Then there's the component solvers, which includes the *DiffEq packages (OrdinaryDiffEq, StochasticDiffEq, etc.) which implement different methods for solve. Then there are the add-on packages, such as the DiffEq* packages (DiffEqParamEstim, DiffEqDevTools) which add functionality to the Problem+solve setup. Lastly, there's DifferentialEquations.jl which is a metapackage which holds all of these pieces together as one cohesive unit.If one wants their package to officially join the ecosystem, it will need to be moved to the JuliaDiffEq organization so that maintenance can occur (but the core algorithms will only be managed by the package owners themselves). The Algorithm types can then be moved to DiffEqBase, and after testing the package will be added to the list packages exported by DifferentialEquations.jl and the corresponding documentation."
 },
 
 {
@@ -109,7 +109,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Adding Algorithms",
     "title": "Adding Algorithms",
     "category": "section",
-    "text": ""
+    "text": "New algorithms can either be added by extending one of the current solver (or add-on packages), or by contributing a new package to the organization. If it's a new problem (a new PDE, a new type of differential equation, a new subclass of problems for which special methods exist, etc.) then the problem and solution types should be added to DiffEqBase first.After the problem and solutions are defined, the solve method should be implemented. It should take in keyword arguments which match the common interface (implement \"as many as possible\"). One should note and document the amount of compatibility with the common interface and Julia-defined types. After that, testing should be done using DiffEqDevTools. Convergence tests and benchmarks should be included to show the effectiveness of the algorithm and the correctness. Do not worry if the algorithm is not \"effective\": the implementation can improve over time and some algorithms useful just for the comparison they give!After some development, one may want to document the algorithm in DiffEqBenchmarks and DiffEqTutorials."
 },
 
 {
@@ -125,7 +125,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Developing A New Problem",
     "title": "Developing A New Problem",
     "category": "section",
-    "text": "To develop a new problem, you need to make a new DEProblem and a new DESolution. These types belong in DiffEqBase and should be exported. The DEProblem type should hold all of the mathematical information about the problem (including all of the meshing information in both space and time), and the DESolution should hold all of the information for the solution. Then all that is required is to define a solve(::DEProblem,alg;kwargs) which takes in the problem and returns a solution. To add plotting functionality, add a plot recipe for the solution type. For testing one should create a separate DETestProblem and DETestSolution which holds the analytical solution, and/or extend appxtrue! in DiffEqDevTools for error analysis. Then to check that the algorithm works, add a dispatch for test_convergence which makes a ConvergenceSimulation type. This type already has a plot recipe, so plotting functionality will already be embedded. This requires that your problem can take in a true solution, and has a field errors which is a dictionary of symbols for the different error estimates (L2,L infinity, etc.)After these steps, update the documentation to include the new problem types and the new associated solvers."
+    "text": "New problems should be defined for new types of differential equations, new partial differential equations, and special subclasses of differential equations for which solvers can dispatch on for better performance (one such subclass are MassMatrixODEProblem which is a DAEProblem, but methods can specialize on the specific structure).To develop a new problem, you need to make a new DEProblem and a new DESolution. These types belong in DiffEqBase and should be exported. The DEProblem type should hold all of the mathematical information about the problem (including all of the meshing information in both space and time), and the DESolution should hold all of the information for the solution. Then all that is required is to define a solve(::DEProblem,alg;kwargs) which takes in the problem and returns a solution.If the problem makes sense in a heirarchy, one should define a promotion structure. For example, ODEProblems are DAEProblems, and so by defining this structure methods written for DAEs can solve ODEs by promotion (such as how DASSL provides a BDF method).To add plotting functionality, add a plot recipe for the solution type. For testing one should create a separate DETestProblem and DETestSolution which holds the analytical solution, and/or extend appxtrue! in DiffEqDevTools for error analysis. Then to check that the algorithm works, add a dispatch for test_convergence which makes a ConvergenceSimulation type. This type already has a plot recipe, so plotting functionality will already be embedded. This requires that your problem can take in a true solution, and has a field errors which is a dictionary of symbols for the different error estimates (L2,L infinity, etc.)After these steps, update the documentation to include the new problem types and the new associated solvers."
 },
 
 {
@@ -162,10 +162,50 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "alg_dev/test_problems.html#",
-    "page": "-",
-    "title": "-",
+    "page": "Test Problems",
+    "title": "Test Problems",
     "category": "page",
-    "text": "If the solution was a TestProblem and thus has an analytical solution, we also havesol.u_analytic # timeseries of analytical solution\nsol.prob.analytic(t) # The analytic solution at time t"
+    "text": ""
+},
+
+{
+    "location": "alg_dev/test_problems.html#Test-Problems-1",
+    "page": "Test Problems",
+    "title": "Test Problems",
+    "category": "section",
+    "text": "For every problem, there is an equivalent TestProblem which also has a field for the analytical solution, and a TestSolution which holds the analytical solution and calculates errors. This allows for easy testing/development, and works with the convregence simulation and benchmarking tools by default. If the solution was a TestProblem and thus has an analytical solution, we also havesol.u_analytic # timeseries of analytical solution\nsol.prob.analytic(t) # The analytic solution at time tavailable for further analysis."
+},
+
+{
+    "location": "alg_dev/test_problems.html#No-Analytical-Solution-1",
+    "page": "Test Problems",
+    "title": "No Analytical Solution",
+    "category": "section",
+    "text": "However, in many cases the analytical solution cannot be found, and therefore one uses a low-tolerance calculation as a stand-in for a solution. The JuliaDiffEq ecosystem supports this through the TestSolution type in DiffEqDevTools. There are three constructors. The code is simple, so here it is:type TestSolution <: DESolution\n  t\n  u\n  interp\n  dense\nend\n(T::TestSolution)(t) = T.interp(t)\nTestSolution(t,u) = TestSolution(t,u,nothing,false)\nTestSolution(t,u,interp) = TestSolution(t,u,interp,true)\nTestSolution(interp::DESolution) = TestSolution(nothing,nothing,interp,true)This acts like a solution. When used in conjunction with apprxtrue:appxtrue(sol::AbstractODESolution,sol2::TestSolution)you can use it to build a TestSolution from a problem (like ODETestSolution) which holds the errors  If you only give it t and u, then it can only calculate the final error. If the TestSolution has an interpolation, it will define timeseries and dense errors.(Note: I would like it so that way the timeseries error will be calculated on the times of sol.t in sol2.t which would act nicely with tstops and when interpolations don't exist, but haven't gotten to it!)These can then be passed to other functionality. For example, the benchmarking functions allow one to set appxsol which is a TestSolution for the benchmark solution to calculate errors against, and error_estimate allows one to choose which error estimate to use in the benchmarking (defaults to :final)."
+},
+
+{
+    "location": "alg_dev/test_problems.html#DiffEqDevTools.appxtrue",
+    "page": "Test Problems",
+    "title": "DiffEqDevTools.appxtrue",
+    "category": "Function",
+    "text": "appxtrue(sol::AbstractODESolution,sol2::TestSolution)\n\nUses the interpolant from the higher order solution sol2 to approximate errors for sol. If sol2 has no interpolant, only the final error is calculated.\n\n\n\nappxtrue(sol::AbstractODESolution,sol2::AbstractODESolution)\n\nUses the interpolant from the higher order solution sol2 to approximate errors for sol. If sol2 has no interpolant, only the final error is calculated.\n\n\n\n"
+},
+
+{
+    "location": "alg_dev/test_problems.html#FiniteElementDiffEq.FEMSolutionTS",
+    "page": "Test Problems",
+    "title": "FiniteElementDiffEq.FEMSolutionTS",
+    "category": "Function",
+    "text": "S = FEMSolutionTS(timeseries::Vector{uType},numvars::Int)S[i][j]` => Variable i at time j.\n\n\n\n"
+},
+
+{
+    "location": "alg_dev/test_problems.html#Related-Functions-1",
+    "page": "Test Problems",
+    "title": "Related Functions",
+    "category": "section",
+    "text": "DiffEqDevTools.appxtrue\nFiniteElementDiffEq.FEMSolutionTS"
 },
 
 {
@@ -326,38 +366,6 @@ var documenterSearchIndex = {"docs": [
     "title": "WorkPrecision",
     "category": "section",
     "text": "A WorkPrecision calculates the necessary componnets of a work-precision plot. This shows how time scales with the user chosen tolerances on a given problem. To make a WorkPrecision, you give it a vector of absolute and relative tolerances:abstols = 1./10.^(3:10)\nreltols = 1./10.^(3:10)\nwp = ode_workprecision(prob,tspan,abstols,reltols;alg=:DP5,name=\"Dormand-Prince 4/5\")If we want to plot many WorkPrecisions together in order to compare between algorithms, you can make a WorkPrecisionSet. To do so, you pass the setups into the function as well:wp_set = ode_workprecision_set(prob,tspan,abstols,reltols,setups;dt=1/2^4,numruns=2)\nsetups = [Dict(:alg=>:RK4);Dict(:alg=>:Euler);Dict(:alg=>:BS3);\n          Dict(:alg=>:Midpoint);Dict(:alg=>:BS5);Dict(:alg=>:DP5)]\nwp_set = ode_workprecision_set(prob,tspan,abstols,reltols,setups;dt=1/2^4,numruns=2)Both of these types have a plot recipe to produce a work-precision diagram, and a print which will show some relevant information."
-},
-
-{
-    "location": "alg_dev/approximate_error.html#",
-    "page": "-",
-    "title": "-",
-    "category": "page",
-    "text": ""
-},
-
-{
-    "location": "alg_dev/approximate_error.html#DiffEqDevTools.appxtrue!",
-    "page": "-",
-    "title": "DiffEqDevTools.appxtrue!",
-    "category": "Function",
-    "text": "appxtrue!(sol::FEMSolution,sol2::FEMSolution)\n\nAdds the solution from sol2 to the FEMSolution object sol. Useful to add a quasi-true solution when none is known by computing once at a very small time/space step and taking that solution as the \"true\" solution\n\n\n\n"
-},
-
-{
-    "location": "alg_dev/approximate_error.html#FiniteElementDiffEq.FEMSolutionTS",
-    "page": "-",
-    "title": "FiniteElementDiffEq.FEMSolutionTS",
-    "category": "Function",
-    "text": "S = FEMSolutionTS(timeseries::Vector{uType},numvars::Int)S[i][j]` => Variable i at time j.\n\n\n\n"
-},
-
-{
-    "location": "alg_dev/approximate_error.html#Related-Functions-1",
-    "page": "-",
-    "title": "Related Functions",
-    "category": "section",
-    "text": "DiffEqDevTools.appxtrue!\nFiniteElementDiffEq.FEMSolutionTS"
 },
 
 {
