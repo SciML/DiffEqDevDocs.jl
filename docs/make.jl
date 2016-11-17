@@ -1,5 +1,5 @@
 using Documenter,DiffEqDevTools,DiffEqBase,FiniteElementDiffEq,
-      DiffEqProblemLibrary, StokesDiffEq, StochasticDiffEq
+      DiffEqProblemLibrary, StokesDiffEq, StochasticDiffEq, OrdinaryDiffEq
 
 makedocs(modules=[DiffEqDevTools,DiffEqBase,FiniteElementDiffEq,StochasticDiffEq,
                   StokesDiffEq,OrdinaryDiffEq,DiffEqProblemLibrary],
