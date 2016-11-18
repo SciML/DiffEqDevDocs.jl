@@ -553,62 +553,6 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "internals/solver_helpers.html#StochasticDiffEq.monteCarloSim",
-    "page": "Solver Extras",
-    "title": "StochasticDiffEq.monteCarloSim",
-    "category": "Function",
-    "text": "monteCarloSim(dt::Number,prob::SDEProblem)\n\nPerforms a parallel Monte-Carlo simulation to solve the SDE problem with dt numMonte times. Returns a vector of solution objects.\n\nKeyword Arguments\n\nT - Final time. Default is 1.\nnumMonte - Number of Monte-Carlo simulations to run. Default is 10000\nsave_timeseries - Denotes whether save_timeseries should be turned on in each run. Default is false.\n\n\n\n"
-},
-
-{
-    "location": "internals/solver_helpers.html#StochasticDiffEq.RosslerSRI",
-    "page": "Solver Extras",
-    "title": "StochasticDiffEq.RosslerSRI",
-    "category": "Type",
-    "text": "RosslerSRI\n\nHolds the Butcher tableaus for a Rosser SRI method.\n\n\n\n"
-},
-
-{
-    "location": "internals/solver_helpers.html#StochasticDiffEq.RosslerSRA",
-    "page": "Solver Extras",
-    "title": "StochasticDiffEq.RosslerSRA",
-    "category": "Type",
-    "text": "RosslerSRA\n\nHolds the Butcher tableaus for a Rosser SRA method.\n\n\n\n"
-},
-
-{
-    "location": "internals/solver_helpers.html#StochasticDiffEq.constructSRA1",
-    "page": "Solver Extras",
-    "title": "StochasticDiffEq.constructSRA1",
-    "category": "Function",
-    "text": "constructSRA1()\n\nConstructs the taleau type for the SRA1 method.\n\n\n\n"
-},
-
-{
-    "location": "internals/solver_helpers.html#StochasticDiffEq.constructSRIW1",
-    "page": "Solver Extras",
-    "title": "StochasticDiffEq.constructSRIW1",
-    "category": "Function",
-    "text": "constructSRIW1()\n\nConstructs the tableau type for the SRIW1 method.\n\n\n\n"
-},
-
-{
-    "location": "internals/solver_helpers.html#StochasticDiffEq.checkSRAOrder",
-    "page": "Solver Extras",
-    "title": "StochasticDiffEq.checkSRAOrder",
-    "category": "Function",
-    "text": "checkSRAOrder(RosslerSRI)\n\nDetermines whether the order conditions are met via the tableaus of the SRA method.\n\n\n\n"
-},
-
-{
-    "location": "internals/solver_helpers.html#StochasticDiffEq.checkSRIOrder",
-    "page": "Solver Extras",
-    "title": "StochasticDiffEq.checkSRIOrder",
-    "category": "Function",
-    "text": "checkSRIOrder(RosslerSRI)\n\nDetermines whether the order conditions are met via the tableaus of the SRI method.\n\n\n\n"
-},
-
-{
     "location": "internals/solver_helpers.html#SDE-Solver-Extras-1",
     "page": "Solver Extras",
     "title": "SDE Solver Extras",
