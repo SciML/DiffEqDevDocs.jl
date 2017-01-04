@@ -185,22 +185,6 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "alg_dev/test_problems.html#DiffEqDevTools.appxtrue",
-    "page": "Test Problems",
-    "title": "DiffEqDevTools.appxtrue",
-    "category": "Function",
-    "text": "appxtrue(sol::AbstractODESolution,sol2::TestSolution)\n\nUses the interpolant from the higher order solution sol2 to approximate errors for sol. If sol2 has no interpolant, only the final error is calculated.\n\n\n\nappxtrue(sol::AbstractODESolution,sol2::AbstractODESolution)\n\nUses the interpolant from the higher order solution sol2 to approximate errors for sol. If sol2 has no interpolant, only the final error is calculated.\n\n\n\n"
-},
-
-{
-    "location": "alg_dev/test_problems.html#FiniteElementDiffEq.FEMSolutionTS",
-    "page": "Test Problems",
-    "title": "FiniteElementDiffEq.FEMSolutionTS",
-    "category": "Function",
-    "text": "S = FEMSolutionTS(timeseries::Vector{uType},numvars::Int)S[i][j]` => Variable i at time j.\n\n\n\n"
-},
-
-{
     "location": "alg_dev/test_problems.html#Related-Functions-1",
     "page": "Test Problems",
     "title": "Related Functions",
@@ -385,22 +369,6 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "internals/fem_tools.html#FiniteElementDiffEq.CFLν",
-    "page": "Internal Finite Element Tools",
-    "title": "FiniteElementDiffEq.CFLν",
-    "category": "Function",
-    "text": "CFLν(dt,dx)`\n\nComputes the CFL-condition = dtdx\n\n\n\n"
-},
-
-{
-    "location": "internals/fem_tools.html#FiniteElementDiffEq.CFLμ",
-    "page": "Internal Finite Element Tools",
-    "title": "FiniteElementDiffEq.CFLμ",
-    "category": "Function",
-    "text": "CFLμ(dt,dx)`\n\nComputes the CFL-condition = dt(dx*dx)\n\n\n\n"
-},
-
-{
     "location": "internals/fem_tools.html#Mesh-Tools-1",
     "page": "Internal Finite Element Tools",
     "title": "Mesh Tools",
@@ -409,75 +377,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "internals/fem_tools.html#FiniteElementDiffEq.∇basis",
-    "page": "Internal Finite Element Tools",
-    "title": "FiniteElementDiffEq.∇basis",
-    "category": "Function",
-    "text": "∇basis(node,elem)\n\nReturns u of the barycentric basis elements.\n\n\n\n"
-},
-
-{
-    "location": "internals/fem_tools.html#FiniteElementDiffEq.quadfbasis",
-    "page": "Internal Finite Element Tools",
-    "title": "FiniteElementDiffEq.quadfbasis",
-    "category": "Function",
-    "text": "quadfbasis(f,gD,gN,A,u,node,elem,area,bdnode,mid,N,NT,dirichlet,neumann,islinear,numvars;gNquad𝒪=2)\n\nPerforms the order 2 quadrature to calculate the vector from the term fv for linear elements.\n\n\n\n"
-},
-
-{
-    "location": "internals/fem_tools.html#FiniteElementDiffEq.quadpts",
-    "page": "Internal Finite Element Tools",
-    "title": "FiniteElementDiffEq.quadpts",
-    "category": "Function",
-    "text": "quadpts(𝒪)\n\nReturns the quadrature points and ω's for and 𝒪  in 2D.\n\nReference: David Dunavant. High degree efficient symmetrical Gaussian quadrature rules for the triangle. International journal for numerical methods in engineering. 21(6):1129–1148, 1985.\n\n\n\n"
-},
-
-{
-    "location": "internals/fem_tools.html#FiniteElementDiffEq.quadpts1",
-    "page": "Internal Finite Element Tools",
-    "title": "FiniteElementDiffEq.quadpts1",
-    "category": "Function",
-    "text": "quadpts1(𝒪)\n\nReferences: Pavel Holoborodko: http://www.holoborodko.com/pavel/numerical-methods/numerical-integration/\n\n\n\n"
-},
-
-{
-    "location": "internals/fem_tools.html#FiniteElementDiffEq.assemblematrix",
-    "page": "Internal Finite Element Tools",
-    "title": "FiniteElementDiffEq.assemblematrix",
-    "category": "Function",
-    "text": "assemblematrix(node,elem;lumpflag=false,K=[])\n\nAssembles the stiffness matrix A as an approximation to Δ on the finite element mesh (node,elem). Also generates the mass matrix M. If lumpflag=true, then the mass matrix is lumped resulting in a diagonal mass matrix. Specify a diffusion constant along the nodes via K.\n\nReturns\n\nA = Stiffness Matrix\nM = Mass Matrix\narea = A vector of the calculated areas for each element.\n\n\n\nassemblematrix(FEMmesh::FEMmesh;lumpflag=false,K=[])\n\nAssembles the stiffness matrix A as an approximation to Δ on the finite element mesh (node,elem). Also generates the mass matrix M. If lumpflag=true, then the mass matrix is lumped resulting in a diagonal mass matrix. Specify a diffusion constant along the nodes via K.\n\nReturns\n\nA = Stiffness Matrix\nM = Mass Matrix\narea = A vector of the calculated areas for each element.\n\n\n\n"
-},
-
-{
-    "location": "internals/fem_tools.html#FiniteElementDiffEq.∇u",
-    "page": "Internal Finite Element Tools",
-    "title": "FiniteElementDiffEq.∇u",
-    "category": "Function",
-    "text": "∇u(node,elem,u,Dλ=[])\n\nEstimates u on the mesh (node,elem)\n\n\n\n"
-},
-
-{
     "location": "internals/fem_tools.html#Solver-Tools-1",
     "page": "Internal Finite Element Tools",
     "title": "Solver Tools",
     "category": "section",
     "text": "FiniteElementDiffEq.∇basis\nFiniteElementDiffEq.quadfbasis\nFiniteElementDiffEq.quadpts\nFiniteElementDiffEq.quadpts1\nFiniteElementDiffEq.assemblematrix\nFiniteElementDiffEq.∇u"
-},
-
-{
-    "location": "internals/fem_tools.html#FiniteElementDiffEq.getH1error",
-    "page": "Internal Finite Element Tools",
-    "title": "FiniteElementDiffEq.getH1error",
-    "category": "Function",
-    "text": "function getH1error(node,elem,Du,uh,K=[],quad𝒪=[])\n\ngetH1error(fem_mesh::FEMmesh,Du,u)\n\nEstimates the H1 error between uexact and uh on the mesh (node,elem). It reads the mesh to estimate the element type and uses this to choose a quadrature 𝒪 unless specified. If K is specified then it is the diffusion coefficient matrix.\n\n\n\n"
-},
-
-{
-    "location": "internals/fem_tools.html#FiniteElementDiffEq.getL2error",
-    "page": "Internal Finite Element Tools",
-    "title": "FiniteElementDiffEq.getL2error",
-    "category": "Function",
-    "text": "getL2error(node,elem,uexact,uh,quad𝒪=[])\n\ngetL2error(fem_mesh::FEMmesh,sol,u)\n\nEstimates the L2 error between uexact and uh on the mesh (node,elem). It reads the mesh to estimate the element type and uses this to choose a quadrature 𝒪 unless specified.\n\n\n\n"
 },
 
 {
@@ -494,38 +398,6 @@ var documenterSearchIndex = {"docs": [
     "title": "Extra Functions",
     "category": "page",
     "text": ""
-},
-
-{
-    "location": "internals/extras.html#FiniteElementDiffEq.getNoise",
-    "page": "Extra Functions",
-    "title": "FiniteElementDiffEq.getNoise",
-    "category": "Function",
-    "text": "getNoise(N,node,elem;noisetype=:White)\n\nReturns a random vector corresponding to the noise type which was chosen.\n\n\n\n"
-},
-
-{
-    "location": "internals/extras.html#DiffEqBase.numparameters",
-    "page": "Extra Functions",
-    "title": "DiffEqBase.numparameters",
-    "category": "Function",
-    "text": "numparameters(f)\n\nReturns the number of parameters of f for the method which has the most parameters.\n\n\n\n"
-},
-
-{
-    "location": "internals/extras.html#DiffEqBase.Tableau",
-    "page": "Extra Functions",
-    "title": "DiffEqBase.Tableau",
-    "category": "Type",
-    "text": "Tableau: Holds the information for a Runge-Kutta Tableau\n\n\n\n"
-},
-
-{
-    "location": "internals/extras.html#DiffEqBase.DEProblem",
-    "page": "Extra Functions",
-    "title": "DiffEqBase.DEProblem",
-    "category": "Type",
-    "text": "DEProblem: Defines differential equation problems via its internal functions\n\n\n\n"
 },
 
 {
