@@ -10,52 +10,76 @@ The easiest way to get started would be to add new solver algorithms. This is a
 pretty simple task as there are tools which put you right into the "hot loop".
 For example, take a look at the ODE solver code. The mode `solve(::ODEProblem,::OrdinaryDiffEqAlgorithm)`
 is glue code to a bunch of solver algorithms. The algorithms which are coded
-in DifferentialEquations.jl can be found in ode_integrators.jl. For example,
-take a look at the Midpoint method's implementation (without the function header):
+in DifferentialEquations.jl can be found in src/integrators.jl. The actual step
+is denoted by the `perform_step!(integrator)` function. For example,
+take a look at the Midpoint method's implementation:
 
 ```julia
-  @ode_preamble
-  halfdt::tType = dt/2
-  @inbounds for T in Ts
-    while t < T
-      @ode_loopheader
-      u = u + dt.*f(t+halfdt,u+halfdt.*f(t,u))
-      @ode_numberloopfooter
-    end
-  end
-  return u,t,timeseries,ts
+@inline function perform_step!(integrator,cache::MidpointConstantCache,f=integrator.f)
+  @unpack t,dt,uprev,u,k = integrator
+  halfdt = dt/2
+  k = integrator.fsalfirst
+  k = f(t+halfdt,uprev+halfdt*k)
+  u = uprev + dt*k
+  integrator.fsallast = f(t+dt,u) # For interpolation, then FSAL'd
+  integrator.k[1] = integrator.fsalfirst
+  integrator.k[2] = integrator.fsallast
+  @pack integrator = t,dt,u
+end
 ```
 
-The available items are all unloaded from the `integrator` in the `@ode_preamble`.
-`@ode_loopheader` and `@ode_loopfooter` macros are for exiting at max iterations,
-and plugging into the Juno progressbar. These are all defined
-using the `@def` macro (they essentially copy-paste the code from the line which
-says `@def ode_loopheader begin ... end`). Note that the loopfooter code takes
-care of the code for doing the adaptive timestepping. All that is required for
-the adaptivity is that the algorithm computes an error estimate `EEst` each time,
-save the value `utmp` to be what will replace `u` if the step is not rejected.
-If implicit solving is needed (via NLsolve),
-add the algorithm's symbol to `isimplicit` and the
-conditional dependency will be supplied. Note that you may need more function
-arguments. Use another method as a template.
+The available items are all unloaded from the `integrator` in the first line.
+`fsalfirst` inherits the value of `fsallast` on the last line. The algorithm is
+written in this form so that way the derivative of both endpints is defined, allowing
+the vector `integrator.k` to determine a  Hermite interpolation polynomial (in general,
+the `k` values for each algorithm form the interpolating polynomial). Other than that,
+the algorithm is as basic as it gets for the Midpoint method, making sure to set
+`fsallast` at the last line. The results are then packaged back into the integrator
+to mutate the state.
 
-It's that quick! Lastly, add your method to the convergence tests in the appropriate /test file.  
-Feel free to implement any interesting or educational algorithm: they don't have to be
-the fastest and it is always is useful to have such algorithms (like Simpson's method)
-available for demonstration purposes.
+Note the name `ConstantCache`. In OrdinaryDiffEq.jl, the `Algorithm` types are used
+for holding type information about which solver to choose, and its the "cache" types
+which then hold the internal caches and state. `ConstantCache` types are for
+not inplace calculations `f(t,u)` and `Cache` types (like `MidpointCache`) include
+all of the internal arrays. Their constructor is specified in the `cache.jl` file.
+The cache (and the first `fsalfirst`) is initialized in the `initialize!` function
+next to the cache's `perform_step!` function.
 
-Adding algorithms to the other problems is very similar.
+The main inner loop can be summarized by the `solve!` command:
+
+```julia
+@inbounds while !isempty(integrator.opts.tstops)
+   while integrator.tdir*integrator.t < integrator.tdir*top(integrator.opts.tstops)
+     loopheader!(integrator)
+     @ode_exit_conditions
+     perform_step!(integrator,integrator.cache)
+     loopfooter!(integrator)
+     if isempty(integrator.opts.tstops)
+       break
+     end
+   end
+   handle_tstop!(integrator)
+ end
+ postamble!(integrator)
+ ```
+
+The algorithm runs until `tstop` is empty. It hits the `loopheader!` in order to
+accept/reject the previous step and choose a new `dt`. This is done at the top
+so that way the iterator interface happens "mid-step" instead of "post-step".
+In here the algorithm is also chosen for the switching algorithms.
+
+Then the `perform_step!` is called. (The exit conditions throw an error if necessary.)
+Afterwards, the `loopfooter!` is used to calculate new timesteps, save, and apply the
+callbacks. If a value of `tstops` is hit, the algorithm breaks out of the inner-most
+loop to save the value.
+
+Adding algorithms to the other problems is very similar, just in a different pacakge.
 
 ## Extras
 
 If the method is a FSAL method then it needs to be set via `isfsal` and `fsalfirst`
 should be defined before the loop, with `fsallast` what's pushed up to `fsalfirst`
 upon a successful step. See `:DP5` for an example.
-
-It's usually wise to dispatch onto Number separately since that uses `f(t,u)`
-instead of `f(t,u,du)`. The dispatch is chosen by setting the `uType` and
-`rateType`, usually to either `<:Number` or `<:AbstractArray` (though they
-should be the same).
 
 If tests fail due to units (i.e. Unitful), don't worry. I would be willing to fix
 that up. To do so, you have to make sure you keep separate your `rateType`s and
