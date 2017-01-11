@@ -61,7 +61,7 @@ The main inner loop can be summarized by the `solve!` command:
    handle_tstop!(integrator)
  end
  postamble!(integrator)
- ```
+```
 
 The algorithm runs until `tstop` is empty. It hits the `loopheader!` in order to
 accept/reject the previous step and choose a new `dt`. This is done at the top
