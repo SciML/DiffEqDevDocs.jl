@@ -1,9 +1,9 @@
 # DiffEq Developer Documentation
 
-This is the developer documentation for the DiffEq ecosystem. It explains the common
+This is the developer documentation and Contributor's Guide for the DiffEq ecosystem. It explains the common
 interface and some the package internals to help developers contribute.
 
-If you have any questions, or just want to chat about solvers/using the package, please feel free to use the [Gitter channel](https://gitter.im/JuliaDiffEq/Lobby). For bug reports, feature requests, etc., please submit an issue. If you're interested in contributing, please see the [Contributor's Guide](http://juliadiffeq.github.io/DifferentialEquations.jl/latest/internals/contributors_guide.html).
+If you have any questions, or just want to chat about solvers/using the package, please feel free to use the [Gitter channel](https://gitter.im/JuliaDiffEq/Lobby). For bug reports, feature requests, etc., please submit an issue.
 
 ### Overview
 
