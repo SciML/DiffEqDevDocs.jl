@@ -31,8 +31,10 @@ as an example.
   `SSPRK22ConstantCache`.
 - The algorithm is defined in `algorithms.jl` as
   `immutable SSPRK22 <: OrdinaryDiffEqAlgorithm end`.
-  Although it has not the FSAL property, this is set to true since it seems to
-  be assumed for the dense interpolation? This is done in `alg_utils.jl` via
+  Although it has not the FSAL property, this is set to true since the derivative
+  at the start and the end of the interval are used for the Hermite interpolation,
+  and so this is FSAL'd so that way only a single extra function evaluation occurs
+  over the whole integration. This is done in `alg_utils.jl` via
   `isfsal(alg::SSPRK22) = true`. Additionally, the order is set in the same
   file via `alg_order(alg::SSPRK22) = 2`.
 - The algorithm `SSPRK22`is exported in `OrdinaryDiffEq.jl`.
@@ -49,3 +51,5 @@ as an example.
   `@time @testset "SSPRK Tests" begin include("ode/ode_ssprk_tests.jl") end`.
 - Additionally, regression tests for the dense output are added in
   `test/ode/ode_dense_tests.jl`.
+
+For more details, refer to https://github.com/JuliaDiffEq/OrdinaryDiffEq.jl/pull/40
