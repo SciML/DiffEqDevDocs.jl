@@ -10,6 +10,7 @@ script:
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
   - julia -e 'Pkg.clone(pwd())'
   - julia -e 'Pkg.clone("https://github.com/JuliaDiffEq/DifferentialEquations.jl")'
+  - julia -e 'Pkg.add("DiffEqProblemLibrary")'
   - julia -e 'Pkg.checkout("DifferentialEquations")'
   - julia -e 'Pkg.checkout("AlgebraicDiffEq")'
   - julia -e 'Pkg.checkout("StochasticDiffEq")'
