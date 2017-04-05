@@ -32,7 +32,7 @@ as an example.
 - The algorithm is defined in `algorithms.jl` as
   `immutable SSPRK22 <: OrdinaryDiffEqAlgorithm end`.
   Although it has not the FSAL property, this is set to true since it seems to
-  be assumed for the dense interpolation? This is done in `alg_utils.jl via
+  be assumed for the dense interpolation? This is done in `alg_utils.jl` via
   `isfsal(alg::SSPRK22) = true`. Additionally, the order is set in the same
   file via `alg_order(alg::SSPRK22) = 2`.
 - The algorithm `SSPRK22`is exported in `OrdinaryDiffEq.jl`.
