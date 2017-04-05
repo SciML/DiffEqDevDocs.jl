@@ -13,7 +13,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Home",
     "title": "DiffEq Developer Documentation",
     "category": "section",
-    "text": "This is the developer documentation for the DiffEq ecosystem. It explains the common interface and some the package internals to help developers contribute.If you have any questions, or just want to chat about solvers/using the package, please feel free to use the Gitter channel. For bug reports, feature requests, etc., please submit an issue. If you're interested in contributing, please see the Contributor's Guide."
+    "text": "This is the developer documentation and Contributor's Guide for the DiffEq ecosystem. It explains the common interface and some the package internals to help developers contribute.If you have any questions, or just want to chat about solvers/using the package, please feel free to use the Gitter channel. For bug reports, feature requests, etc., please submit an issue."
 },
 
 {
@@ -110,6 +110,14 @@ var documenterSearchIndex = {"docs": [
     "title": "Adding Algorithms",
     "category": "section",
     "text": "New algorithms can either be added by extending one of the current solver (or add-on packages), or by contributing a new package to the organization. If it's a new problem (a new PDE, a new type of differential equation, a new subclass of problems for which special methods exist, etc.) then the problem and solution types should be added to DiffEqBase first.After the problem and solutions are defined, the solve method should be implemented. It should take in keyword arguments which match the common interface (implement \"as many as possible\"). One should note and document the amount of compatibility with the common interface and Julia-defined types. After that, testing should be done using DiffEqDevTools. Convergence tests and benchmarks should be included to show the effectiveness of the algorithm and the correctness. Do not worry if the algorithm is not \"effective\": the implementation can improve over time and some algorithms useful just for the comparison they give!After some development, one may want to document the algorithm in DiffEqBenchmarks and DiffEqTutorials."
+},
+
+{
+    "location": "contributing/adding_algorithms.html#Adding-new-algorithms-to-OrdinaryDiffEq-1",
+    "page": "Adding Algorithms",
+    "title": "Adding new algorithms to OrdinaryDiffEq",
+    "category": "section",
+    "text": "This recipe has been used to add the strong stability preserving RUnge-Kutta methods SSPRK22, SSPRK33, and SSPRK104 to OrdinaryDiffEq. SSPRK22 will be used as an example.To create a new solver, two (three) types have to be created. The first is the algorithm SSPRK22 used for dispatch, the other ones are the corresponding caches SSPRK22Cache (for inplace updates) and SSPRK22ConstantCache.\nThe algorithm is defined in algorithms.jl as immutable SSPRK22 <: OrdinaryDiffEqAlgorithm end. Although it has not the FSAL property, this is set to true since the derivative at the start and the end of the interval are used for the Hermite interpolation, and so this is FSAL'd so that way only a single extra function evaluation occurs over the whole integration. This is done in alg_utils.jl via isfsal(alg::SSPRK22) = true. Additionally, the order is set in the same file via alg_order(alg::SSPRK22) = 2.\nThe algorithm SSPRK22is exported in OrdinaryDiffEq.jl.\nIn caches.jl, the two cache types SSPRK22Cache (for inplace updates) and SSPRK22ConstantCache are defined, similarly to the other ones. Note: u_cache(c::SSPRK22Cache) = () and du_cache(c::SSPRK22Cache) = (c.k,c.du,c.fsalfirst) return the parts of the modifiable cache that are changed if the size of the ODE changes.\nA new file integrators/ssprk_integrators.jlhas been used for the new implementations. For both types of caches, the functions initialize! and perform_step! are defined there.\nFinally, tests are added. A new file test/ode/ode_ssprk_tests.jl is created and included in tests/runtests.jl via  @time @testset \"SSPRK Tests\" begin include(\"ode/ode_ssprk_tests.jl\") end.\nAdditionally, regression tests for the dense output are added in test/ode/ode_dense_tests.jl.For more details, refer to https://github.com/JuliaDiffEq/OrdinaryDiffEq.jl/pull/40"
 },
 
 {
@@ -662,54 +670,6 @@ var documenterSearchIndex = {"docs": [
     "title": "Implicit Runge-Kutta Methods",
     "category": "section",
     "text": "constructImplicitEuler - The 1st order Implicit Euler method.\nconstructMidpointRule - The 2nd order Midpoint method.\nconstructTrapezoidalRule - The 2nd order Trapezoidal rule (2nd order LobattoIIIA)\nconstructLobattoIIIA4 - The 4th order LobattoIIIA\nconstructLobattoIIIB2 - The 2nd order LobattoIIIB\nconstructLobattoIIIB4 - The 4th order LobattoIIIB\nconstructLobattoIIIC2 - The 2nd order LobattoIIIC\nconstructLobattoIIIC4 - The 4th order LobattoIIIC\nconstructLobattoIIICStar2 - The 2nd order LobattoIIIC*\nconstructLobattoIIICStar4 - The 4th order LobattoIIIC*\nconstructLobattoIIID2 - The 2nd order LobattoIIID\nconstructLobattoIIID4 - The 4th order LobattoIIID\nconstructRadauIA3 - The 3rd order RadauIA\nconstructRadauIA5 - The 5th order RadauIA\nconstructRadauIIA3 - The 3rd order RadauIIA\nconstructRadauIIA5 - The 5th order RadauIIA"
-},
-
-{
-    "location": "internals/tableaus.html#Base.length-Tuple{DiffEqBase.ODERKTableau}",
-    "page": "ODE Tableaus",
-    "title": "Base.length",
-    "category": "Method",
-    "text": "Base.length(tab::ODERKTableau)\n\nDefines the length of a Runge-Kutta method to be the number of stages.\n\n\n\n"
-},
-
-{
-    "location": "internals/tableaus.html#DiffEqDevTools.stability_region",
-    "page": "ODE Tableaus",
-    "title": "DiffEqDevTools.stability_region",
-    "category": "Function",
-    "text": "stability_region(z,tab::ODERKTableau)\n\nCalculates the stability function from the tableau at z. Stable if <1.\n\nr(z) = fracdet(I-zA+zeb^T)det(I-zA)\n\n\n\n"
-},
-
-{
-    "location": "internals/tableaus.html#DiffEqBase.ExplicitRKTableau",
-    "page": "ODE Tableaus",
-    "title": "DiffEqBase.ExplicitRKTableau",
-    "category": "Type",
-    "text": "ExplicitRKTableau\n\nHolds a tableau which defines an explicit Runge-Kutta method.\n\n\n\n"
-},
-
-{
-    "location": "internals/tableaus.html#DiffEqBase.ImplicitRKTableau",
-    "page": "ODE Tableaus",
-    "title": "DiffEqBase.ImplicitRKTableau",
-    "category": "Type",
-    "text": "ImplicitRKTableau\n\nHolds a tableau which defines an implicit Runge-Kutta method.\n\n\n\n"
-},
-
-{
-    "location": "internals/tableaus.html#DiffEqBase.ODERKTableau",
-    "page": "ODE Tableaus",
-    "title": "DiffEqBase.ODERKTableau",
-    "category": "Type",
-    "text": "ODERKTableau: A Runge-Kutta Tableau for an ODE integrator\n\n\n\n"
-},
-
-{
-    "location": "internals/tableaus.html#OrdinaryDiffEq.ODE_DEFAULT_TABLEAU",
-    "page": "ODE Tableaus",
-    "title": "OrdinaryDiffEq.ODE_DEFAULT_TABLEAU",
-    "category": "Constant",
-    "text": "ODE_DEFAULT_TABLEAU\n\nSets the default tableau for the ODE solver. Currently Dormand-Prince 4/5.\n\n\n\n"
 },
 
 {
