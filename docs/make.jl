@@ -13,7 +13,8 @@ makedocs(modules=[DiffEqDevTools,DiffEqBase,FiniteElementDiffEq,StochasticDiffEq
            "contributing/ecosystem_overview.md",
            "contributing/adding_algorithms.md",
            "contributing/defining_problems.md",
-           "contributing/diffeq_internals.md"
+           "contributing/diffeq_internals.md",
+           "contributing/parameters.md"
          ],
          "Algorithm Development Tools" => Any[
            "alg_dev/test_problems.md",
