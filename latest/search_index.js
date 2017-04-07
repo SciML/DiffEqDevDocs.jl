@@ -45,7 +45,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Home",
     "title": "Contributor Guide",
     "category": "section",
-    "text": "Pages = [\n  \"contributing/ecosystem_overview.md\",\n  \"contributing/adding_algorithms.md\",\n  \"contributing/defining_problems.md\",\n  \"contributing/diffeq_internals.md\"\n]\nDepth = 2"
+    "text": "Pages = [\n  \"contributing/ecosystem_overview.md\",\n  \"contributing/adding_algorithms.md\",\n  \"contributing/defining_problems.md\",\n  \"contributing/diffeq_internals.md\",\n  \"contributing/parameters.md\"\n]\nDepth = 2"
 },
 
 {
@@ -166,6 +166,14 @@ var documenterSearchIndex = {"docs": [
     "title": "Extras",
     "category": "section",
     "text": "If the method is a FSAL method then it needs to be set via isfsal and fsalfirst should be defined before the loop, with fsallast what's pushed up to fsalfirst upon a successful step. See :DP5 for an example.If tests fail due to units (i.e. Unitful), don't worry. I would be willing to fix that up. To do so, you have to make sure you keep separate your rateTypes and your uTypes since the rates from f will have units of u but divided by a unit of time. If you simply try to write these into u, the units part will fail (normally you have to multiply by a dt)."
+},
+
+{
+    "location": "contributing/parameters.html#",
+    "page": "-",
+    "title": "-",
+    "category": "page",
+    "text": ""
 },
 
 {
