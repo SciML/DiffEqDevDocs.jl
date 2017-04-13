@@ -213,7 +213,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Test Problems",
     "title": "Test Problems",
     "category": "section",
-    "text": "For every problem, there is an equivalent TestProblem which also has a field for the analytical solution, and a TestSolution which holds the analytical solution and calculates errors. This allows for easy testing/development, and works with the convregence simulation and benchmarking tools by default. If the solution was a TestProblem and thus has an analytical solution, we also havesol.u_analytic # timeseries of analytical solution\nsol.prob.analytic(t) # The analytic solution at time tavailable for further analysis."
+    "text": "For every problem, one can turn it into a test problem by adding the dispatch for the analytical solution:f(Val{:analytic},...)This is assigned to the first function in the problem by convention."
 },
 
 {
