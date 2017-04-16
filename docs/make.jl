@@ -14,7 +14,8 @@ makedocs(modules=[DiffEqDevTools,DiffEqBase,FiniteElementDiffEq,StochasticDiffEq
            "contributing/adding_algorithms.md",
            "contributing/defining_problems.md",
            "contributing/diffeq_internals.md",
-           "contributing/parameters.md"
+           "contributing/parameters.md",
+           "contributing/type_traits.md"
          ],
          "Algorithm Development Tools" => Any[
            "alg_dev/test_problems.md",
