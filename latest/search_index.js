@@ -45,7 +45,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Home",
     "title": "Contributor Guide",
     "category": "section",
-    "text": "Pages = [\n  \"contributing/ecosystem_overview.md\",\n  \"contributing/adding_algorithms.md\",\n  \"contributing/defining_problems.md\",\n  \"contributing/diffeq_internals.md\",\n  \"contributing/parameters.md\"\n]\nDepth = 2"
+    "text": "Pages = [\n  \"contributing/ecosystem_overview.md\",\n  \"contributing/adding_algorithms.md\",\n  \"contributing/defining_problems.md\",\n  \"contributing/diffeq_internals.md\",\n  \"contributing/parameters.md\",\n  \"contributing/type_traits.md\"\n]\nDepth = 2"
 },
 
 {
@@ -61,7 +61,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Home",
     "title": "Internal Documentation",
     "category": "section",
-    "text": "Pages = [\n  \"internals/fem_tools.md\",\n  \"internals/extras.md\",\n  \"internals/solver_helpers.md\",\n  \"internals/notes_on_algorithms.md\",\n  \"internals/tableaus.md\"\n]\nDepth = 2"
+    "text": "Pages = [\n  \"internals/fem_tools.md\",\n  \"internals/notes_on_algorithms.md\",\n  \"internals/tableaus.md\"\n]\nDepth = 2"
 },
 
 {
@@ -198,6 +198,46 @@ var documenterSearchIndex = {"docs": [
     "title": "Building a New Problem with New Parameters",
     "category": "section",
     "text": "From a DEProblem, the functionproblem_new_parameters(prob::DEProblem,p)can be used to build a new problem type which uses the parameter vector p. For problems which have parameters in multiple places, such as a SDEProblem or a MonteCarloProblem, this p is split between these locations using num_params to find out how much of p goes to each location."
+},
+
+{
+    "location": "contributing/type_traits.html#",
+    "page": "Type Traits",
+    "title": "Type Traits",
+    "category": "page",
+    "text": ""
+},
+
+{
+    "location": "contributing/type_traits.html#Type-Traits-1",
+    "page": "Type Traits",
+    "title": "Type Traits",
+    "category": "section",
+    "text": "Many of the DiffEqBase abstract types have associated traits. These can be used to check compatibility and apply separate code paths. For example, a parameter estimation algorithm can set the default for using autodifferentiation by checking if the algorithm is compatible with autodifferentiation.Below are the abstract types along with the associated trait functions. These are listed as:f(x)where f is the trait function and x is the any type which subtypes the abstract type."
+},
+
+{
+    "location": "contributing/type_traits.html#AbstractODEProblem-1",
+    "page": "Type Traits",
+    "title": "AbstractODEProblem",
+    "category": "section",
+    "text": "isinplace : Returns true if the problem uses in-place functions"
+},
+
+{
+    "location": "contributing/type_traits.html#AbstractRODEProblem-1",
+    "page": "Type Traits",
+    "title": "AbstractRODEProblem",
+    "category": "section",
+    "text": "is_diagonal_noise : Returns true if the noise is diagonal."
+},
+
+{
+    "location": "contributing/type_traits.html#DEAlgorithm-1",
+    "page": "Type Traits",
+    "title": "DEAlgorithm",
+    "category": "section",
+    "text": "isautodifferentiable : Returns true if the algorithm is autodifferentiable."
 },
 
 {
@@ -433,134 +473,6 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "internals/extras.html#",
-    "page": "Extra Functions",
-    "title": "Extra Functions",
-    "category": "page",
-    "text": ""
-},
-
-{
-    "location": "internals/extras.html#Extra-Functions-1",
-    "page": "Extra Functions",
-    "title": "Extra Functions",
-    "category": "section",
-    "text": "FiniteElementDiffEq.getNoise\nDiffEqBase.numparameters\nDiffEqBase.Tableau\nDiffEqBase.DEProblem"
-},
-
-{
-    "location": "internals/solver_helpers.html#",
-    "page": "Solver Extras",
-    "title": "Solver Extras",
-    "category": "page",
-    "text": ""
-},
-
-{
-    "location": "internals/solver_helpers.html#Solver-Extras-1",
-    "page": "Solver Extras",
-    "title": "Solver Extras",
-    "category": "section",
-    "text": ""
-},
-
-{
-    "location": "internals/solver_helpers.html#SDE-Solver-Extras-1",
-    "page": "Solver Extras",
-    "title": "SDE Solver Extras",
-    "category": "section",
-    "text": "StochasticDiffEq.monteCarloSim\nStochasticDiffEq.RosslerSRI\nStochasticDiffEq.RosslerSRA\nStochasticDiffEq.constructSRA1\nStochasticDiffEq.constructSRIW1\nStochasticDiffEq.checkSRAOrder\nStochasticDiffEq.checkSRIOrder"
-},
-
-{
-    "location": "internals/solver_helpers.html#StokesDiffEq.GSδq!",
-    "page": "Solver Extras",
-    "title": "StokesDiffEq.GSδq!",
-    "category": "Function",
-    "text": "GSδq!(δq,rp,Δxs)\n\nPerforms a Gauss-Seidel iteration for δq.\n\n\n\n"
-},
-
-{
-    "location": "internals/solver_helpers.html#StokesDiffEq.GSu!",
-    "page": "Solver Extras",
-    "title": "StokesDiffEq.GSu!",
-    "category": "Function",
-    "text": "GSu!(u,f₁,Δxs,p,ugD,grids,ux,uy)\n\nPerforms a Gauss-Seidel iteration on u.\n\n\n\n"
-},
-
-{
-    "location": "internals/solver_helpers.html#StokesDiffEq.calc_rp!",
-    "page": "Solver Extras",
-    "title": "StokesDiffEq.calc_rp!",
-    "category": "Function",
-    "text": "calc_rp!(rp,u,v,Δxs,g,px,py)\n\nCalculates the rp from the u and v's.\n\n\n\n"
-},
-
-{
-    "location": "internals/solver_helpers.html#StokesDiffEq.update_p!",
-    "page": "Solver Extras",
-    "title": "StokesDiffEq.update_p!",
-    "category": "Function",
-    "text": "update_p!(p,δq,Δxs)\n\nUpdates p given δq\n\n\n\n"
-},
-
-{
-    "location": "internals/solver_helpers.html#StokesDiffEq.update_v!",
-    "page": "Solver Extras",
-    "title": "StokesDiffEq.update_v!",
-    "category": "Function",
-    "text": "update_v!(v,δq,Δxs)\n\nUpdates v given δq\n\n\n\n"
-},
-
-{
-    "location": "internals/solver_helpers.html#StokesDiffEq.uzawa_p!",
-    "page": "Solver Extras",
-    "title": "StokesDiffEq.uzawa_p!",
-    "category": "Function",
-    "text": "uzawa_p!(p,u,v,Δxs,g,px,py)\n\nSolves for p from u and v using an Uzawa update.\n\n\n\n"
-},
-
-{
-    "location": "internals/solver_helpers.html#StokesDiffEq.stokes_restriction",
-    "page": "Solver Extras",
-    "title": "StokesDiffEq.stokes_restriction",
-    "category": "Function",
-    "text": "stokes_restriction(u,v,p,Δxs,grids,mins,maxs,ugD,vgD)\n\nRestricts the Stokes problem to the coarsegrid.\n\n\n\n"
-},
-
-{
-    "location": "internals/solver_helpers.html#StokesDiffEq.stokes_prolongation",
-    "page": "Solver Extras",
-    "title": "StokesDiffEq.stokes_prolongation",
-    "category": "Function",
-    "text": "stokes_prolongation(u,v,p,Δxs,grids,mins,maxs,ugD,vgD)\n\nProlongates the Stokes problem to the fine grid\n\n\n\n"
-},
-
-{
-    "location": "internals/solver_helpers.html#StokesDiffEq.update_u!",
-    "page": "Solver Extras",
-    "title": "StokesDiffEq.update_u!",
-    "category": "Function",
-    "text": "update_u!(u,δq,Δxs)\n\nUpdates u given δq\n\n\n\n"
-},
-
-{
-    "location": "internals/solver_helpers.html#StokesDiffEq.GSv!",
-    "page": "Solver Extras",
-    "title": "StokesDiffEq.GSv!",
-    "category": "Function",
-    "text": "GSv!(v,f₂,Δxs,p,vgD,grids,vx,vy)\n\nPerforms a Gauss-Seidel iteration on v.\n\n\n\n"
-},
-
-{
-    "location": "internals/solver_helpers.html#Stationary-Stokes-1",
-    "page": "Solver Extras",
-    "title": "Stationary Stokes",
-    "category": "section",
-    "text": "StokesDiffEq.GSδq!\nStokesDiffEq.GSu!\nStokesDiffEq.calc_rp!\nStokesDiffEq.update_p!\nStokesDiffEq.update_v!\nStokesDiffEq.uzawa_p!\nStokesDiffEq.stokes_restriction\nStokesDiffEq.stokes_prolongation\nStokesDiffEq.update_u!\nStokesDiffEq.GSv!"
-},
-
-{
     "location": "internals/notes_on_algorithms.html#",
     "page": "Notes on Algorithms",
     "title": "Notes on Algorithms",
@@ -705,11 +617,27 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "internals/tableaus.html#DiffEqDevTools.stability_region",
+    "page": "ODE Tableaus",
+    "title": "DiffEqDevTools.stability_region",
+    "category": "Function",
+    "text": "stability_region(z,tab::ODERKTableau)\n\nCalculates the stability function from the tableau at z. Stable if <1.\n\nr(z) = fracdet(I-zA+zeb^T)det(I-zA)\n\n\n\n"
+},
+
+{
+    "location": "internals/tableaus.html#OrdinaryDiffEq.ODE_DEFAULT_TABLEAU",
+    "page": "ODE Tableaus",
+    "title": "OrdinaryDiffEq.ODE_DEFAULT_TABLEAU",
+    "category": "Constant",
+    "text": "ODE_DEFAULT_TABLEAU\n\nSets the default tableau for the ODE solver. Currently Dormand-Prince 4/5.\n\n\n\n"
+},
+
+{
     "location": "internals/tableaus.html#Tableau-Methods-1",
     "page": "ODE Tableaus",
     "title": "Tableau Methods",
     "category": "section",
-    "text": "Base.length(::DiffEqBase.ODERKTableau)\nDiffEqDevTools.stability_region\nDiffEqBase.ExplicitRKTableau\nDiffEqBase.ImplicitRKTableau\nDiffEqBase.ODERKTableau\nOrdinaryDiffEq.ODE_DEFAULT_TABLEAU"
+    "text": "DiffEqDevTools.stability_region\nOrdinaryDiffEq.ODE_DEFAULT_TABLEAU"
 },
 
 {
