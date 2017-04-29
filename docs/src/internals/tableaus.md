@@ -107,11 +107,7 @@
 ## Tableau Methods
 
 ```@docs
-Base.length(::DiffEqBase.ODERKTableau)
 DiffEqDevTools.stability_region
-DiffEqBase.ExplicitRKTableau
-DiffEqBase.ImplicitRKTableau
-DiffEqBase.ODERKTableau
 OrdinaryDiffEq.ODE_DEFAULT_TABLEAU
 ```
 

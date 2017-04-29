@@ -1,8 +1,6 @@
-using Documenter,DiffEqDevTools,DiffEqBase,FiniteElementDiffEq,
-      DiffEqProblemLibrary, StokesDiffEq, StochasticDiffEq, OrdinaryDiffEq
+using Documenter,DiffEqDevTools,FiniteElementDiffEq,OrdinaryDiffEq
 
-makedocs(modules=[DiffEqDevTools,DiffEqBase,FiniteElementDiffEq,StochasticDiffEq,
-                  StokesDiffEq,OrdinaryDiffEq,DiffEqProblemLibrary],
+makedocs(modules=[DiffEqDevTools,FiniteElementDiffEq,OrdinaryDiffEq],
          doctest=false, clean=true,
          format =:html,
          sitename="DiffEq Developer Documentation",
@@ -24,8 +22,6 @@ makedocs(modules=[DiffEqDevTools,DiffEqBase,FiniteElementDiffEq,StochasticDiffEq
          ],
          "Internal Documentation" => Any[
            "internals/fem_tools.md",
-           "internals/extras.md",
-           "internals/solver_helpers.md",
            "internals/notes_on_algorithms.md",
            "internals/tableaus.md"
          ]
