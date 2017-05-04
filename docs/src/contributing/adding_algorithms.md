@@ -21,7 +21,7 @@ and DiffEqTutorials.
 
 ## Adding new algorithms to OrdinaryDiffEq
 
-This recipe has been used to add the strong stability preserving RUnge-Kutta methods
+This recipe has been used to add the strong stability preserving Runge-Kutta methods
 `SSPRK22`, `SSPRK33`, and `SSPRK104` to `OrdinaryDiffEq`. `SSPRK22` will be used
 as an example.
 
