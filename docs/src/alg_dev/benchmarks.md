@@ -48,7 +48,7 @@ by default run the algorithm 20 times on the problem and take the average time.
 This amount can be increased and decreased as needed.
 
 The keyword `appxtrue` allows for specifying a reference against which the error is computed.
-The method of error computation can be specified by the keyword `error_estimate` with values `:L2` for the L2 error over the solution time interval, `:l2` calculates the l2 error at the actual steps and `:final` only compares the endpoints.
+The method of error computation can be specified by the keyword `error_estimate` with values `:L2` for the L2 error over the solution time interval, `:l2` calculates the l2 error at the actual steps and the default `:final` only compares the endpoints.
 
 A ShootoutSet is a where you define a vector of probs and tspans and run a shootout
 on each of these values.
