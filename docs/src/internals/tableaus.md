@@ -5,9 +5,13 @@
 * `constructEuler` - Euler's 1st order method.
 * `constructHuen()` Huen's order 2 method.
 * `constructRalston()` - Ralston's order 2 method.
-* `constructKutta3` - Kutta's classic 3rd order method
-* `constructRK4` - The classic 4th order "Runge-Kutta" method
-* `constructRK438Rule` - The classic 4th order "3/8th's Rule" method
+* `constructSSPRK22()` - Explicit SSP method of order 2 using 2 stages.
+* `constructKutta3` - Kutta's classic 3rd order method.
+* `constructSSPRK33()` - Explicit SSP method of order 3 using 3 stages.
+* `constructSSPRK43()` - Explicit SSP method of order 3 using 4 stages.
+* `constructRK4` - The classic 4th order "Runge-Kutta" method.
+* `constructRK438Rule` - The classic 4th order "3/8th's Rule" method.
+* `constructSSPRK104()` - Explicit SSP method of order 4 using 10 stages.
 * `constructBogakiShampine3()` - Bogakai-Shampine's 2/3 method.
 * `constructRKF4()` - Runge-Kutta-Fehlberg 3/4.
 * `constructRKF5()` - Runge-Kutta-Fehlberg 4/5.
