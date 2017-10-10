@@ -63,6 +63,7 @@ have any questions on how to help, just ask them in the Gitter!
 ```@contents
 Pages = [
   "contributing/ecosystem_overview.md",
+  "contributing/adding_packages.md",
   "contributing/adding_algorithms.md",
   "contributing/defining_problems.md",
   "contributing/diffeq_internals.md",

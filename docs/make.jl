@@ -9,6 +9,7 @@ makedocs(modules=[DiffEqDevTools,FiniteElementDiffEq,OrdinaryDiffEq],
          "Home" => "index.md",
          "Contributor Guide" => Any[
            "contributing/ecosystem_overview.md",
+           "contributing/adding_packages.md",
            "contributing/adding_algorithms.md",
            "contributing/defining_problems.md",
            "contributing/diffeq_internals.md",
