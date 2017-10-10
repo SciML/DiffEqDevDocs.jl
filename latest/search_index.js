@@ -45,7 +45,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Home",
     "title": "Contributor Guide",
     "category": "section",
-    "text": "Pages = [\n  \"contributing/ecosystem_overview.md\",\n  \"contributing/adding_algorithms.md\",\n  \"contributing/defining_problems.md\",\n  \"contributing/diffeq_internals.md\",\n  \"contributing/parameters.md\",\n  \"contributing/type_traits.md\"\n]\nDepth = 2"
+    "text": "Pages = [\n  \"contributing/ecosystem_overview.md\",\n  \"contributing/adding_packages.md\",\n  \"contributing/adding_algorithms.md\",\n  \"contributing/defining_problems.md\",\n  \"contributing/diffeq_internals.md\",\n  \"contributing/parameters.md\",\n  \"contributing/type_traits.md\"\n]\nDepth = 2"
 },
 
 {
@@ -94,6 +94,46 @@ var documenterSearchIndex = {"docs": [
     "title": "Organizational Setup",
     "category": "section",
     "text": "JuliaDiffEq is setup in a distributed manner to allow developers to retain authoritative control and licensing for their own packages/algorithms, yet contribute to the greater ecosystem. This gives a way for researchers to target a wide audience of users, but not have to fully contribute to public packages or be restricted in licensing. At the center of the ecosystem is DiffEqBase which holds the Problem, Solution, and Algorithm types (the algorithms are defined in DiffEqBase to be accessible by the default_algorithm function. One can opt out of this). Then there's the component solvers, which includes the *DiffEq packages (OrdinaryDiffEq, StochasticDiffEq, etc.) which implement different methods for solve. Then there are the add-on packages, such as the DiffEq* packages (DiffEqParamEstim, DiffEqDevTools) which add functionality to the Problem+solve setup. Lastly, there's DifferentialEquations.jl which is a metapackage which holds all of these pieces together as one cohesive unit.If one wants their package to officially join the ecosystem, it will need to be moved to the JuliaDiffEq organization so that maintenance can occur (but the core algorithms will only be managed by the package owners themselves). The Algorithm types can then be moved to DiffEqBase, and after testing the package will be added to the list packages exported by DifferentialEquations.jl and the corresponding documentation."
+},
+
+{
+    "location": "contributing/adding_packages.html#",
+    "page": "Adding a new package to the common interface",
+    "title": "Adding a new package to the common interface",
+    "category": "page",
+    "text": ""
+},
+
+{
+    "location": "contributing/adding_packages.html#Adding-a-new-package-to-the-common-interface-1",
+    "page": "Adding a new package to the common interface",
+    "title": "Adding a new package to the common interface",
+    "category": "section",
+    "text": "DiffEq's distributed infrastructure allows anyone to add new packages to the common interface. This set of the documentation explains how this is done. An example package is DASRK.jl whose full common interface bindings are contained in common.jl."
+},
+
+{
+    "location": "contributing/adding_packages.html#Defining-the-types-1",
+    "page": "Adding a new package to the common interface",
+    "title": "Defining the types",
+    "category": "section",
+    "text": "You should start by defining a common supertype for all your algorithm types. DASKR has DAE algorithms, so it definesabstract type DASKRDAEAlgorithm{LinearSolver} <: AbstractDAEAlgorithm endthat its algorithms are all AbstractDAEAlgorithms and gives them a possible type parameter as well. Then the concrete algorithms are specified. Special options (i.e. non-common interface options) for the algorithm go in this type. Here there is a choice for a linear solver internally, so we allow the user to set this but use @pure on the constructor so that way the type is inferred:immutable daskr{LinearSolver} <: DASKRDAEAlgorithm{LinearSolver} end\nBase.@pure daskr(;linear_solver=:Dense) = daskr{linear_solver}()In many (most?) cases, no extra constructor is needed since there are no extra options."
+},
+
+{
+    "location": "contributing/adding_packages.html#Defining-the-overloads-1",
+    "page": "Adding a new package to the common interface",
+    "title": "Defining the overloads",
+    "category": "section",
+    "text": "Now you need to add DiffEqBase. The package should reexport DiffEqBase.jl to make using it alone act naturally, and this is done by:using Reexport\n@reexport using DiffEqBasenow we overload solve from DiffEqBase.jl to act on our algorithm. Here's a possible signature:import DiffEqBase: solve\nfunction solve{uType,duType,tType,isinplace,LinearSolver}(\n    prob::AbstractDAEProblem{uType,duType,tType,isinplace},\n    alg::DASKRDAEAlgorithm{LinearSolver},\n    timeseries = [], ts = [], ks = [];\n\n    verbose=true,\n    callback = nothing, abstol = 1/10^6, reltol = 1/10^3,\n    saveat = Float64[], adaptive = true, maxiters = Int(1e5),\n    timeseries_errors = true, save_everystep = isempty(saveat), dense = save_everystep,\n    save_start = true, save_timeseries = nothing,\n    userdata = nothing,\n    kwargs...)Basically you just dispatch on your algorithm supertype (and refine the Problem choice as well so it errors on the wrong problem types), then list the common interface options. timeseries = [], ts = [], ks = []; are for pre-allocation of arrays, and this may change in the near future but you can use this to pre-allocate the t, u, and k arrays (k being internal steps if saved)."
+},
+
+{
+    "location": "contributing/adding_packages.html#Defining-the-solution-1",
+    "page": "Adding a new package to the common interface",
+    "title": "Defining the solution",
+    "category": "section",
+    "text": "In solve you do option handling and call your solver. At the end, you return the solution via:build_solution(prob,alg,ts,timeseries,\n               du = dures,\n               dense = dense,\n               timeseries_errors = timeseries_errors,\n               retcode = :Success)Giving du is only currently allowed for DAEs and is optional. The errors flags (timeseries_errors and dense_errors) are flags for allowing the solution to calculate errors which should be passed through the solve function if applicable. A proper retcode should be placed or it will default to :Default."
 },
 
 {
