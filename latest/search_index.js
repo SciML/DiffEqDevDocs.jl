@@ -221,15 +221,7 @@ var documenterSearchIndex = {"docs": [
     "page": "The Parameters Interface",
     "title": "The Parameters Interface",
     "category": "section",
-    "text": "The parameters interface allows for parameters in functions to be added and accessed by the various routines which needs parameters, and allows them to be \"buried\" in the routines which need to not have explicit parameters."
-},
-
-{
-    "location": "contributing/parameters.html#The-Functions-on-Parameterized-Functions-1",
-    "page": "The Parameters Interface",
-    "title": "The Functions on Parameterized Functions",
-    "category": "section",
-    "text": "param_values(f) # An array of the parameters in the function\nnum_params(f) # The number of parameters in the function"
+    "text": ""
 },
 
 {
