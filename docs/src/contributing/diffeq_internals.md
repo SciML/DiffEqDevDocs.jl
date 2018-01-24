@@ -21,7 +21,7 @@ take a look at the Midpoint method's implementation:
   k = integrator.fsalfirst
   k = f(t+halfdt,uprev+halfdt*k)
   u = uprev + dt*k
-  integrator.fsallast = f(t+dt,u) # For interpolation, then FSAL'd
+  integrator.fsallast = f(u,p,t+dt) # For interpolation, then FSAL'd
   integrator.k[1] = integrator.fsalfirst
   integrator.k[2] = integrator.fsallast
   @pack integrator = t,dt,u
