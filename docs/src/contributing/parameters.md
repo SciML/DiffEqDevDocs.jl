@@ -1,16 +1,5 @@
 # The Parameters Interface
 
-The parameters interface allows for parameters in functions to be added and
-accessed by the various routines which needs parameters, and allows them
-to be "buried" in the routines which need to not have explicit parameters.
-
-## The Functions on Parameterized Functions
-
-```julia
-param_values(f) # An array of the parameters in the function
-num_params(f) # The number of parameters in the function
-```
-
 ## Building a New Problem with New Parameters
 
 From a `DEProblem`, the function
