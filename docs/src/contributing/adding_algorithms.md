@@ -30,7 +30,7 @@ as an example.
   the corresponding caches `SSPRK22Cache` (for inplace updates) and
   `SSPRK22ConstantCache`.
 - The algorithm is defined in `algorithms.jl` as
-  `immutable SSPRK22 <: OrdinaryDiffEqAlgorithm end`.
+  `struct SSPRK22 <: OrdinaryDiffEqAlgorithm end`.
   Although it has not the FSAL property, this is set to true since the derivative
   at the start and the end of the interval are used for the Hermite interpolation,
   and so this is FSAL'd so that way only a single extra function evaluation occurs
