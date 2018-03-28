@@ -18,22 +18,6 @@ solve(prob,alg;kwargs...)
 There is then an ecosystem of add-on components which use the common solver interface
 to add analysis tools for differential equations.
 
-### Bleeding Edge
-
-This package suite is still under heavy development. If you are a power user
-and would like to try out the latest features, it is recommended you use the
-MetaDiffEq metapackage. To do so, use the following commands:
-
-```julia
-Pkg.clone("https://github.com/tbreloff/MetaPkg.jl") # Install MetaPkg
-using MetaPkg
-meta_add("MetaDiffEq") # Adds all of the packages, even those unregistered
-meta_checkout("MetaDiffEq") # Checks out the master branch on all of the packages
-```
-
-Note that this is for power users who are familiar with Julia. If you are having
-issues, please contact Chris Rackauckas in  [the Gitter channel.](https://gitter.im/JuliaDiffEq/Lobby)
-
 ### Contributing to the Ecosystem
 
 There are many ways to help the ecosystem. One way you can contribute is to give
