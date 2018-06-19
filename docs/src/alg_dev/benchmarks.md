@@ -17,7 +17,7 @@ notebook(dir = Pkg.dir("DifferentialEquations")*"/benchmarks")
 ### Shootout
 
  A
-shootout is where you compare between algorithms. For example, so see how
+shootout is where you compare between algorithms. For example, to see how
 different Runge-Kutta algorithms fair against each other, one can define a setup
 which is a dictionary of Symbols to Any, where the symbol is the keyword argument.
 Then you call `ode_shootout` on that setup. The code is as follows:
@@ -36,7 +36,7 @@ Note that keyword arguments applied to ode_shootout are applied to every run, so
 in this example every run has the same starting timestep.  Here we explicitly chose names.
 If you don't, then the algorithm name is the default.
 This returns a Shootout type which holds the times it took for each algorithm
-and the errors. Using these, it calculates the efficiency defnied as
+and the errors. Using these, it calculates the efficiency defined as
 1/(error*time), i.e. if the error is low or the run was quick then
 it's efficient. `print(shoot)` will show all of this information,
 and `plot(shoot)` will show the efficiencies of the algorithms
