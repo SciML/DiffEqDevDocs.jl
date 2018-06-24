@@ -37,13 +37,13 @@ as an example.
   over the whole integration. This is done in `alg_utils.jl` via
   `isfsal(alg::SSPRK22) = true`. Additionally, the order is set in the same
   file via `alg_order(alg::SSPRK22) = 2`.
-- The algorithm `SSPRK22`is exported in `OrdinaryDiffEq.jl`.
+- The algorithm `SSPRK22` is exported in `OrdinaryDiffEq.jl`.
 - In `caches.jl`, the two cache types `SSPRK22Cache` (for inplace updates) and
   `SSPRK22ConstantCache` are defined, similarly to the other ones.
   Note: `u_cache(c::SSPRK22Cache) = ()` and
   `du_cache(c::SSPRK22Cache) = (c.k,c.du,c.fsalfirst)` return the parts of the
   modifiable cache that are changed if the size of the ODE changes.
-- A new file `integrators/ssprk_integrators.jl`has been used for the new
+- A new file `perform_step/ssprk_perform_step.jl` has been used for the new
   implementations. For both types of caches, the functions `initialize!`
   and `perform_step!` are defined there.
 - Finally, tests are added. A new file `test/ode/ode_ssprk_tests.jl` is created
