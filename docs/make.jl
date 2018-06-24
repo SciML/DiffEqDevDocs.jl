@@ -1,6 +1,6 @@
-using Documenter,DiffEqDevTools,FiniteElementDiffEq,OrdinaryDiffEq
+using Documenter,DiffEqDevTools,OrdinaryDiffEq
 
-makedocs(modules=[DiffEqDevTools,FiniteElementDiffEq,OrdinaryDiffEq],
+makedocs(modules=[DiffEqDevTools,OrdinaryDiffEq],
          doctest=false, clean=true,
          format =:html,
          sitename="DiffEq Developer Documentation",
@@ -22,7 +22,6 @@ makedocs(modules=[DiffEqDevTools,FiniteElementDiffEq,OrdinaryDiffEq],
            "alg_dev/benchmarks.md"
          ],
          "Internal Documentation" => Any[
-           "internals/fem_tools.md",
            "internals/notes_on_algorithms.md",
            "internals/tableaus.md"
          ]
