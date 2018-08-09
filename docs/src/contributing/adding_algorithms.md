@@ -53,3 +53,37 @@ as an example.
   `test/ode/ode_dense_tests.jl`.
 
 For more details, refer to https://github.com/JuliaDiffEq/OrdinaryDiffEq.jl/pull/40
+
+### Adding new exponential algorithms
+
+The exponential algorithms follow the same recipe as the general algorithms, but there
+are automation utilities that make this easier. It is recommended that you refer to one
+of the model algorithms for reference:
+
+- For traditional exponential Runge-Kutta type methods (that come with a corresponding
+  Butcher table), refer to `ETDRK2`.
+- For adaptive exponential Rosenbrock type methods, refer to `Exprb32`.
+- For exponential propagation iterative Runge-Kutta methods (EPIRK), refer to `EPIRK5P1`.
+
+The first two classes support two modes of operation: operator caching and Krylov
+approximation. The `perform_step!` method in `perform_step/exponential_rk_perform_step.jl`,
+as a result, is split into two branches depending on whether `alg.krylov` is true. The
+caching branch utilizes precomputed operators, which are calculated by the `expRK_operators`
+method in `caches/linear_nonlinear_caches.jl`. Both `expRK_operators` and the `arnoldi`/`phiv`
+methods in `perform_step!` comes from the
+[ExponentialUtilities](https://github.com/JuliaDiffEq/ExponentialUtilities.jl) package.
+
+The EPIRK methods can only use Krylov approximation, and unlike the previous two they use
+the timestepping variant `phiv_timestep`. The timestepping method follows the convention
+of Neisen & Wright, and can be toggled to use adaptation by `alg.adaptive_krylov`.
+
+Although the exponential integrators (especially the in-place version) can seem complex, they
+share similar structures. The infrastructure for the exisitng exponential methods utilize the
+fact to reduce boilerplate code. In particular, the cache construction code in
+`caches/linear_nonlinear_caches.jl` and the `initialize!` method in
+`perform_step/exponential_rk_perform_step.jl` can be mostly automated and only `perform_step!`
+needs implementing.
+
+Finally, to construct tests for the new exponential algorithm, append the new algorithm to
+the corresponding algorithm class in `test/linear_nonlinear_convergence_tests.jl` and
+`test/linear_nonlinear_krylov_tests.jl`.
