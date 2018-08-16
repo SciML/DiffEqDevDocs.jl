@@ -13,7 +13,6 @@ makedocs(modules=[DiffEqDevTools,OrdinaryDiffEq],
            "contributing/adding_algorithms.md",
            "contributing/defining_problems.md",
            "contributing/diffeq_internals.md",
-           "contributing/parameters.md",
            "contributing/type_traits.md"
          ],
          "Algorithm Development Tools" => Any[

@@ -97,33 +97,6 @@ solved over the given dts.
 * `timeseries_steps`: Denotes the steps to save at if `save_timeseries=true`. Default is 1
 * `alg`: The algorithm to test. Defaults to "EM".
 
-## Poisson
-
-`test_convergence(dxs::AbstractArray,prob::PoissonProblem)`
-
-Tests the convergence of the solver algorithm on the given Poisson problem with
-dxs as given. Uses the square mesh [0,1]x[0,1].
-
-### Keyword Arguments
-
-* `solver`: Which solver to use. Default is "Direct".
-
-## Heat
-
-test_convergence(dts::AbstractArray,dxs::AbstractArray,prob::AbstractHeatProblem,convergence_axis)
-
-Tests the convergence of the solver algorithm on the given Heat problem with
-the dts and dxs as given. Uses the square mesh [0,1]x[0,1]. The convergence
-axis is the axis along which convergence is calculated. For example, when testing
-dt convergence, `convergence_axis = dts`.
-
-### Keyword Arguments
-
-* `T`: The final time. Defaults to 1
-* `alg`: The algorithm to test. Default is "Euler".
-
-## Utilities
-
 ### Order Estimation
 
 `calc𝒪estimates(error::Vector{Number})``

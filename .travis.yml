@@ -9,7 +9,6 @@ notifications:
 script:
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
   - julia -e 'Pkg.clone(pwd())'
-  - julia -e 'Pkg.add("FiniteElementDiffEq")'
   - julia -e 'Pkg.add("DiffEqDevTools")'
   - julia -e 'Pkg.add("OrdinaryDiffEq")'
   - julia -e 'Pkg.add("Documenter")'

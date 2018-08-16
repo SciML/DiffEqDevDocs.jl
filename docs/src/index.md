@@ -12,11 +12,18 @@ is a type-based interface where users define problems as a type, and solvers
 plug into the ecosystem by defining an algorithm to give a new dispatch to
 
 ```julia
-solve(prob,alg;kwargs...)
+__solve(prob,alg;kwargs...)
+__init(prob,alg;kwargs...)
 ```
 
-There is then an ecosystem of add-on components which use the common solver interface
-to add analysis tools for differential equations.
+There is a top level `solve` and `init` function which is
+in DiffEqBase.jl that handles distribution and function input
+(along with extra warnings) before sending the problems
+to the packages.
+
+There is then an ecosystem of add-on components which use the
+common solver interface to add analysis tools for differential
+equations.
 
 ### Contributing to the Ecosystem
 
@@ -26,7 +33,8 @@ own package to the ecosystem. Adding your own package to the ecosystem allows
 you to keep executive control and licensing over your methods,
 but allows users of DifferentialEquations.jl to use your methods via the common
 interface, and makes your package compatible with the add-on tools (sensitivity
-analysis, parameter estimation, etc). Note that one is required to move their
+analysis, parameter estimation, etc). Note that, in order for the method to be
+used as a default, one is required to move their
 package to the JuliaDiffEq organization so that way common maintenance (such
 as fixing deprication warnings, updating tests to newer versions, and emergency
 fixes / disabling) can be allowed by JuliaDiffEq members. However, the lead developer
@@ -51,7 +59,6 @@ Pages = [
   "contributing/adding_algorithms.md",
   "contributing/defining_problems.md",
   "contributing/diffeq_internals.md",
-  "contributing/parameters.md",
   "contributing/type_traits.md"
 ]
 Depth = 2

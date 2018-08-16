@@ -11,10 +11,13 @@ The DiffEq ecosystem is built around the common interface. This is the interface
 for the solvers:
 
 ```julia
-solve(prob,alg;kwargs...)
+__solve(prob,alg;kwargs...)
+__init(prob,alg;kwargs...)
 ```
 
-and the standard methods for dealing with solutions. Ecosystem builds problem
+and the standard methods for dealing with solutions. A higher level `solve` and
+`init` is given by DiffEqBase.jl for functional and distributional intputs.
+Users build problem
 types for solvers to act on, and add-on components which use the solution types
 for higher-level analysis like parameter estimation and sensitivity analysis.
 

@@ -1,13 +1,7 @@
 # Test Problems
 
-For every problem, one can turn it into a test problem by adding the dispatch
-for the analytical solution:
-
-```julia
-f(Val{:analytic},...)
-```
-
-This is assigned to the first function in the problem by convention.
+For every problem, one can turn it into a test problem by adding `analytical`
+to the `DEFunction`.
 
 ## No Analytical Solution
 
@@ -53,5 +47,4 @@ which error estimate to use in the benchmarking (defaults to `:final`).
 
 ```@docs
 DiffEqDevTools.appxtrue
-FiniteElementDiffEq.FEMSolutionTS
 ```

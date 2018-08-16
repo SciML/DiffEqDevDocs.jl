@@ -11,18 +11,18 @@ You should start by defining a common supertype for all your algorithm types.
 DASKR has DAE algorithms, so it defines
 
 ```julia
-abstract type DASKRDAEAlgorithm{LinearSolver} <: AbstractDAEAlgorithm end
+abstract type DASKRDAEAlgorithm{LinearSolver} <: DiffEqBase.AbstractDAEAlgorithm end
 ```
 
 that its algorithms are all `AbstractDAEAlgorithm`s and gives them a possible
 type parameter as well. Then the concrete algorithms are specified. Special
 options (i.e. non-common interface options) for the algorithm go in this type.
 Here there is a choice for a linear solver internally, so we allow the user
-to set this but use `@pure` on the constructor so that way the type is inferred:
+to set this:
 
 ```julia
-immutable daskr{LinearSolver} <: DASKRDAEAlgorithm{LinearSolver} end
-Base.@pure daskr(;linear_solver=:Dense) = daskr{linear_solver}()
+struct daskr{LinearSolver} <: DASKRDAEAlgorithm{LinearSolver} end
+daskr(;linear_solver=:Dense) = daskr{linear_solver}()
 ```
 
 In many (most?) cases, no extra constructor is needed since there are no
@@ -38,12 +38,11 @@ using Reexport
 @reexport using DiffEqBase
 ```
 
-now we overload `solve` from `DiffEqBase.jl` to act on our algorithm. Here's a
+now we overload `__solve` from `DiffEqBase.jl` to act on our algorithm. Here's a
 possible signature:
 
 ```julia
-import DiffEqBase: solve
-function solve{uType,duType,tType,isinplace,LinearSolver}(
+function DiffEqBase.__solve{uType,duType,tType,isinplace,LinearSolver}(
     prob::AbstractDAEProblem{uType,duType,tType,isinplace},
     alg::DASKRDAEAlgorithm{LinearSolver},
     timeseries = [], ts = [], ks = [];
