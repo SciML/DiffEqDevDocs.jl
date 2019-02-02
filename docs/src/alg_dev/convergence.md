@@ -72,30 +72,16 @@ be used in this command. Please see the Plots.jl documentation for more informat
 `test_convergence(dts::AbstractArray,prob::AbstractODEProblem)`
 
 Tests the order of the time convergence of the given algorithm on the given problem
-solved over the given dts.
-
-### Keyword Arguments
-
-* `T`: The final time. Default is 1
-* `save_timeseries`: Denotes whether to save at every timeseries_steps steps. Default is true.
-* `timeseries_steps`: Denotes the steps to save at if `save_timeseries=true`. Default is 1
-* `alg`: The algorithm to test.
-* `tableau`: The tableau used for generic methods. Defaults to ODE_DEFAULT_TABLEAU.
+solved over the given dts. Keyword arguments are passed to the ODE solver.
 
 ## SDE
 
 `test_convergence(dts::AbstractArray,prob::AbstractSDEProblem)`
 
 Tests the strong order time convergence of the given algorithm on the given problem
-solved over the given dts.
+solved over the given dts. Keyword arguments are passed to the ODE solver. Except:
 
-### Keyword Arguments
-
-* `T`: The final time. Default is 1
 * `numMonte`: The number of simulations for each dt. Default is 10000.
-* `save_timeseries`: Denotes whether to save at every timeseries_steps steps. Default is true.
-* `timeseries_steps`: Denotes the steps to save at if `save_timeseries=true`. Default is 1
-* `alg`: The algorithm to test. Defaults to "EM".
 
 ### Order Estimation
 
