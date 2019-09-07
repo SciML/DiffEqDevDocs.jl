@@ -54,6 +54,98 @@ as an example.
 
 For more details, refer to https://github.com/JuliaDiffEq/OrdinaryDiffEq.jl/pull/40
 
+### Self-Contained Example
+
+```julia
+using OrdinaryDiffEq
+import OrdinaryDiffEq: OrdinaryDiffEqAlgorithm,OrdinaryDiffEqConstantCache,
+      alg_order, alg_cache, initialize!, perform_step!, @muladd, @unpack,
+      constvalue
+
+struct Mead <: OrdinaryDiffEq.OrdinaryDiffEqAlgorithm end
+export Mead
+alg_order(alg::Mead) = 4
+
+struct MeadConstantCache <: OrdinaryDiffEqConstantCache
+  b1
+  b2
+  b3
+  b4
+  b5
+  b6
+  c2
+  c3
+  c4
+  c5
+  c6
+end
+
+function MeadConstantCache(T1,T2)
+  b1 = T1(-0.15108370762927)
+  b2 = T1(0.75384683913851)
+  b3 = T1(-0.36016595357907)
+  b4 = T1(0.52696773139913)
+  b5 = T1(0)
+  b6 = T1(0.23043509067071)
+  c2 = T2(0.16791846623918)
+  c3 = T2(0.48298439719700)
+  c4 = T2(0.70546072965982)
+  c5 = T2(0.09295870406537)
+  c6 = T2(0.76210081248836)
+  MeadConstantCache(b1,b2,b3,b4,b5,b6,c2,c3,c4,c5,c6)
+end
+
+alg_cache(alg::Mead,u,rate_prototype,uEltypeNoUnits,uBottomEltypeNoUnits,tTypeNoUnits,uprev,uprev2,f,t,dt,reltol,p,calck,::Type{Val{false}}) = MeadConstantCache(constvalue(uBottomEltypeNoUnits),constvalue(tTypeNoUnits))
+
+function initialize!(integrator, cache::MeadConstantCache)
+  integrator.kshortsize = 2
+  integrator.k = typeof(integrator.k)(undef, integrator.kshortsize)
+  integrator.fsalfirst = integrator.f(integrator.uprev, integrator.p, integrator.t) # Pre-start fsal
+  integrator.destats.nf += 1
+
+  # Avoid undefined entries if k is an array of arrays
+  integrator.fsallast = zero(integrator.fsalfirst)
+  integrator.k[1] = integrator.fsalfirst
+  integrator.k[2] = integrator.fsallast
+end
+
+@muladd function perform_step!(integrator, cache::MeadConstantCache, repeat_step=false)
+  @unpack t,dt,uprev,u,f,p = integrator
+  @unpack b1,b2,b3,b4,b5,b6,c2,c3,c4,c5,c6 = cache
+  k1=integrator.fsalfirst #f(uprev,p,t)
+  k2=f(uprev+c2*dt*k1,p,t+c2*dt)
+  k3=f(uprev+c3*dt*k2,p,t+c3*dt)
+  k4=f(uprev+c4*dt*k3,p,t+c4*dt)
+  k5=f(uprev+c5*dt*k4,p,t+c5*dt)
+  k6=f(uprev+c6*dt*k5,p,t+c6*dt)
+  u=uprev+dt*(b1*k1+b2*k2+b3*k3+b4*k4+b6*k6)
+  integrator.fsallast = f(u,p,t+dt)
+  integrator.k[1] = integrator.fsalfirst
+  integrator.k[2] = integrator.fsallast
+  integrator.u = u
+end
+
+f = ODEFunction((u,p,t)->1.01u,
+            analytic = (u0,p,t) -> u0*exp(1.01t))
+prob = ODEProblem(f,1.01,(0.0,1.0))
+sol = solve(prob,Mead(),dt=0.1)
+
+using Plots
+plot(sol)
+plot(sol,denseplot=false,plot_analytic=true)
+
+using DiffEqDevTools
+dts = (1/2) .^ (8:-1:1)
+sim = test_convergence(dts,prob,Mead())
+sim.𝒪est[:final]
+plot(sim)
+
+# Exanple of a good one!
+sim = test_convergence(dts,prob,BS3())
+sim.𝒪est[:final]
+plot(sim)
+```
+
 ### Adding new exponential algorithms
 
 The exponential algorithms follow the same recipe as the general algorithms, but there
