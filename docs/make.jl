@@ -2,7 +2,7 @@ using Documenter,DiffEqDevTools,OrdinaryDiffEq
 
 makedocs(modules=[DiffEqDevTools,OrdinaryDiffEq],
          doctest=false, clean=true,
-         format =:html,
+         format = Documenter.HTML(),
          sitename="DiffEq Developer Documentation",
          authors="Chris Rackauckas",
          pages = Any[
@@ -30,6 +30,6 @@ deploydocs(
    repo = "github.com/JuliaDiffEq/DiffEqDevDocs.jl.git",
    target = "build",
    osname = "linux",
-   julia = "0.5",
+   julia = "1.1",
    deps = nothing,
    make = nothing)
