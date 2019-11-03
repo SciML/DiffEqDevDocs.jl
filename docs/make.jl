@@ -28,8 +28,4 @@ makedocs(modules=[DiffEqDevTools,OrdinaryDiffEq],
 
 deploydocs(
    repo = "github.com/JuliaDiffEq/DiffEqDevDocs.jl.git",
-   target = "build",
-   osname = "linux",
-   julia = "1.1",
-   deps = nothing,
-   make = nothing)
+)
