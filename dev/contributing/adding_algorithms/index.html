@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Adding Algorithms · DiffEq Developer Documentation</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link href="../../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><a href="../../index.html"><img class="logo" src="../../assets/logo.png" alt="DiffEq Developer Documentation logo"/></a><h1>DiffEq Developer Documentation</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../../">Home</a></li><li><span class="toctext">Contributor Guide</span><ul><li><a class="toctext" href="../ecosystem_overview/">Ecosystem Overview</a></li><li><a class="toctext" href="../adding_packages/">Adding a new package to the common interface</a></li><li class="current"><a class="toctext" href>Adding Algorithms</a><ul class="internal"><li><a class="toctext" href="#Adding-new-algorithms-to-OrdinaryDiffEq-1">Adding new algorithms to OrdinaryDiffEq</a></li></ul></li><li><a class="toctext" href="../defining_problems/">Developing A New Problem</a></li><li><a class="toctext" href="../diffeq_internals/">The DiffEq Internals</a></li><li><a class="toctext" href="../type_traits/">Type Traits</a></li></ul></li><li><span class="toctext">Algorithm Development Tools</span><ul><li><a class="toctext" href="../../alg_dev/test_problems/">Test Problems</a></li><li><a class="toctext" href="../../alg_dev/convergence/">Convergence Simulations</a></li><li><a class="toctext" href="../../alg_dev/benchmarks/">Benchmark Suite</a></li></ul></li><li><span class="toctext">Internal Documentation</span><ul><li><a class="toctext" href="../../internals/notes_on_algorithms/">Notes on Algorithms</a></li><li><a class="toctext" href="../../internals/tableaus/">ODE Tableaus</a></li></ul></li></ul></nav><article id="docs"><header><nav><ul><li>Contributor Guide</li><li><a href>Adding Algorithms</a></li></ul><a class="edit-page" href="https://github.com/JuliaDiffEq/DiffEqDevDocs.jl/blob/master/docs/src/contributing/adding_algorithms.md"><span class="fa"></span> Edit on GitHub</a></nav><hr/><div id="topbar"><span>Adding Algorithms</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Adding-Algorithms-1" href="#Adding-Algorithms-1">Adding Algorithms</a></h1><p>New algorithms can either be added by extending one of the current solver (or add-on packages), or by contributing a new package to the organization. If it&#39;s a new problem (a new PDE, a new type of differential equation, a new subclass of problems for which special methods exist, etc.) then the problem and solution types should be added to <code>DiffEqBase</code> first.</p><p>After the problem and solutions are defined, the <code>solve</code> method should be implemented. It should take in keyword arguments which match the common interface (implement &quot;as many as possible&quot;). One should note and document the amount of compatibility with the common interface and Julia-defined types. After that, testing should be done using <code>DiffEqDevTools</code>. Convergence tests and benchmarks should be included to show the effectiveness of the algorithm and the correctness. Do not worry if the algorithm is not &quot;effective&quot;: the implementation can improve over time and some algorithms useful just for the comparison they give!</p><p>After some development, one may want to document the algorithm in DiffEqBenchmarks and DiffEqTutorials.</p><h2><a class="nav-anchor" id="Adding-new-algorithms-to-OrdinaryDiffEq-1" href="#Adding-new-algorithms-to-OrdinaryDiffEq-1">Adding new algorithms to OrdinaryDiffEq</a></h2><p>This recipe has been used to add the strong stability preserving Runge-Kutta methods <code>SSPRK22</code>, <code>SSPRK33</code>, and <code>SSPRK104</code> to <code>OrdinaryDiffEq</code>. <code>SSPRK22</code> will be used as an example.</p><ul><li>To create a new solver, two (three) types have to be created. The first is the algorithm <code>SSPRK22</code> used for dispatch, the other ones are the corresponding caches <code>SSPRK22Cache</code> (for inplace updates) and <code>SSPRK22ConstantCache</code>.</li><li>The algorithm is defined in <code>algorithms.jl</code> as <code>struct SSPRK22 &lt;: OrdinaryDiffEqAlgorithm end</code>. Although it does not have the FSAL property, this is set to true since the derivative at the start and the end of the interval are used for the Hermite interpolation, and so this is FSAL&#39;d so that way only a single extra function evaluation occurs over the whole integration. This is done in <code>alg_utils.jl</code> via <code>isfsal(alg::SSPRK22) = true</code>. Additionally, the order is set in the same file via <code>alg_order(alg::SSPRK22) = 2</code>.</li><li>The algorithm <code>SSPRK22</code> is exported in <code>OrdinaryDiffEq.jl</code>.</li><li>In <code>caches.jl</code>, the two cache types <code>SSPRK22Cache</code> (for inplace updates) and <code>SSPRK22ConstantCache</code> are defined, similarly to the other ones. Note: <code>u_cache(c::SSPRK22Cache) = ()</code> and <code>du_cache(c::SSPRK22Cache) = (c.k,c.du,c.fsalfirst)</code> return the parts of the modifiable cache that are changed if the size of the ODE changes.</li><li>A new file <code>perform_step/ssprk_perform_step.jl</code> has been used for the new implementations. For both types of caches, the functions <code>initialize!</code> and <code>perform_step!</code> are defined there.</li><li>Finally, tests are added. A new file <code>test/ode/ode_ssprk_tests.jl</code> is created and included in <code>tests/runtests.jl</code> via <code>@time @testset &quot;SSPRK Tests&quot; begin include(&quot;ode/ode_ssprk_tests.jl&quot;) end</code>.</li><li>Additionally, regression tests for the dense output are added in <code>test/ode/ode_dense_tests.jl</code>.</li></ul><p>For more details, refer to https://github.com/JuliaDiffEq/OrdinaryDiffEq.jl/pull/40</p><h3><a class="nav-anchor" id="Self-Contained-Example-1" href="#Self-Contained-Example-1">Self-Contained Example</a></h3><pre><code class="language-julia">using OrdinaryDiffEq
+import OrdinaryDiffEq: OrdinaryDiffEqAlgorithm,OrdinaryDiffEqConstantCache,
+      alg_order, alg_cache, initialize!, perform_step!, @muladd, @unpack,
+      constvalue
+
+struct Mead &lt;: OrdinaryDiffEq.OrdinaryDiffEqAlgorithm end
+export Mead
+alg_order(alg::Mead) = 4
+
+struct MeadConstantCache &lt;: OrdinaryDiffEqConstantCache
+  b1
+  b2
+  b3
+  b4
+  b5
+  b6
+  c2
+  c3
+  c4
+  c5
+  c6
+end
+
+function MeadConstantCache(T1,T2)
+  b1 = T1(-0.15108370762927)
+  b2 = T1(0.75384683913851)
+  b3 = T1(-0.36016595357907)
+  b4 = T1(0.52696773139913)
+  b5 = T1(0)
+  b6 = T1(0.23043509067071)
+  c2 = T2(0.16791846623918)
+  c3 = T2(0.48298439719700)
+  c4 = T2(0.70546072965982)
+  c5 = T2(0.09295870406537)
+  c6 = T2(0.76210081248836)
+  MeadConstantCache(b1,b2,b3,b4,b5,b6,c2,c3,c4,c5,c6)
+end
+
+alg_cache(alg::Mead,u,rate_prototype,uEltypeNoUnits,uBottomEltypeNoUnits,tTypeNoUnits,uprev,uprev2,f,t,dt,reltol,p,calck,::Type{Val{false}}) = MeadConstantCache(constvalue(uBottomEltypeNoUnits),constvalue(tTypeNoUnits))
+
+function initialize!(integrator, cache::MeadConstantCache)
+  integrator.kshortsize = 2
+  integrator.k = typeof(integrator.k)(undef, integrator.kshortsize)
+  integrator.fsalfirst = integrator.f(integrator.uprev, integrator.p, integrator.t) # Pre-start fsal
+  integrator.destats.nf += 1
+
+  # Avoid undefined entries if k is an array of arrays
+  integrator.fsallast = zero(integrator.fsalfirst)
+  integrator.k[1] = integrator.fsalfirst
+  integrator.k[2] = integrator.fsallast
+end
+
+@muladd function perform_step!(integrator, cache::MeadConstantCache, repeat_step=false)
+  @unpack t,dt,uprev,u,f,p = integrator
+  @unpack b1,b2,b3,b4,b5,b6,c2,c3,c4,c5,c6 = cache
+  k1=integrator.fsalfirst #f(uprev,p,t)
+  k2=f(uprev+c2*dt*k1,p,t+c2*dt)
+  k3=f(uprev+c3*dt*k2,p,t+c3*dt)
+  k4=f(uprev+c4*dt*k3,p,t+c4*dt)
+  k5=f(uprev+c5*dt*k4,p,t+c5*dt)
+  k6=f(uprev+c6*dt*k5,p,t+c6*dt)
+  u=uprev+dt*(b1*k1+b2*k2+b3*k3+b4*k4+b6*k6)
+  integrator.fsallast = f(u,p,t+dt)
+  integrator.k[1] = integrator.fsalfirst
+  integrator.k[2] = integrator.fsallast
+  integrator.u = u
+end
+
+f = ODEFunction((u,p,t)-&gt;1.01u,
+            analytic = (u0,p,t) -&gt; u0*exp(1.01t))
+prob = ODEProblem(f,1.01,(0.0,1.0))
+sol = solve(prob,Mead(),dt=0.1)
+
+using Plots
+plot(sol)
+plot(sol,denseplot=false,plot_analytic=true)
+
+using DiffEqDevTools
+dts = (1/2) .^ (8:-1:1)
+sim = test_convergence(dts,prob,Mead())
+sim.𝒪est[:final]
+plot(sim)
+
+# Exanple of a good one!
+sim = test_convergence(dts,prob,BS3())
+sim.𝒪est[:final]
+plot(sim)</code></pre><h3><a class="nav-anchor" id="Adding-new-exponential-algorithms-1" href="#Adding-new-exponential-algorithms-1">Adding new exponential algorithms</a></h3><p>The exponential algorithms follow the same recipe as the general algorithms, but there are automation utilities that make this easier. It is recommended that you refer to one of the model algorithms for reference:</p><ul><li>For traditional exponential Runge-Kutta type methods (that come with a corresponding Butcher table), refer to <code>ETDRK2</code>.</li><li>For adaptive exponential Rosenbrock type methods, refer to <code>Exprb32</code>.</li><li>For exponential propagation iterative Runge-Kutta methods (EPIRK), refer to <code>EPIRK5P1</code>.</li></ul><p>The first two classes support two modes of operation: operator caching and Krylov approximation. The <code>perform_step!</code> method in <code>perform_step/exponential_rk_perform_step.jl</code>, as a result, is split into two branches depending on whether <code>alg.krylov</code> is true. The caching branch utilizes precomputed operators, which are calculated by the <code>expRK_operators</code> method in <code>caches/linear_nonlinear_caches.jl</code>. Both <code>expRK_operators</code> and the <code>arnoldi</code>/<code>phiv</code> methods in <code>perform_step!</code> comes from the <a href="https://github.com/JuliaDiffEq/ExponentialUtilities.jl">ExponentialUtilities</a> package.</p><p>The EPIRK methods can only use Krylov approximation, and unlike the previous two they use the timestepping variant <code>phiv_timestep</code>. The timestepping method follows the convention of Neisen &amp; Wright, and can be toggled to use adaptation by <code>alg.adaptive_krylov</code>.</p><p>Although the exponential integrators (especially the in-place version) can seem complex, they share similar structures. The infrastructure for the exisitng exponential methods utilize the fact to reduce boilerplate code. In particular, the cache construction code in <code>caches/linear_nonlinear_caches.jl</code> and the <code>initialize!</code> method in <code>perform_step/exponential_rk_perform_step.jl</code> can be mostly automated and only <code>perform_step!</code> needs implementing.</p><p>Finally, to construct tests for the new exponential algorithm, append the new algorithm to the corresponding algorithm class in <code>test/linear_nonlinear_convergence_tests.jl</code> and <code>test/linear_nonlinear_krylov_tests.jl</code>.</p><footer><hr/><a class="previous" href="../adding_packages/"><span class="direction">Previous</span><span class="title">Adding a new package to the common interface</span></a><a class="next" href="../defining_problems/"><span class="direction">Next</span><span class="title">Developing A New Problem</span></a></footer></article></body></html>
