@@ -214,6 +214,7 @@ end
   f( k,  u, p, t+dt)
 end
 
+#oop test
 f = ODEFunction((u,p,t)->1.01u,
             analytic = (u0,p,t) -> u0*exp(1.01t))
 prob = ODEProblem(f,1.01,(0.0,1.0))
@@ -224,6 +225,25 @@ plot(sol)
 plot(sol,denseplot=false,plot_analytic=true)
 
 using DiffEqDevTools
+dts = (1/2) .^ (8:-1:1)
+sim = test_convergence(dts,prob,RK_ALG())
+sim.𝒪est[:final]
+plot(sim)
+
+# Exanple of a good one!
+sim = test_convergence(dts,prob,BS3())
+sim.𝒪est[:final]
+plot(sim)
+
+#iip test
+f = ODEFunction((du,u,p,t)->(du .= 1.01.*u),
+            analytic = (u0,p,t) -> u0*exp(1.01t))
+prob = ODEProblem(f,[1.01],(0.0,1.0))
+sol = solve(prob,RK_ALG(),dt=0.1)
+
+plot(sol)
+plot(sol,denseplot=false,plot_analytic=true)
+
 dts = (1/2) .^ (8:-1:1)
 sim = test_convergence(dts,prob,RK_ALG())
 sim.𝒪est[:final]
