@@ -86,3 +86,5 @@ that up. To do so, you have to make sure you keep separate your `rateType`s and
 your `uType`s since the rates from `f` will have units of `u` but divided by
 a unit of time. If you simply try to write these into `u`, the units part will
 fail (normally you have to multiply by a ``dt``).
+
+If you want to access the value of u at the second-last time point, you can use uprev2 value. But in order to copy uprev value to uprev2 after each timestep, you need to make `alg_extrapolates(alg::Your_Alg) = true` in the alg_utils.jl file.
