@@ -35,11 +35,11 @@ but allows users of DifferentialEquations.jl to use your methods via the common
 interface, and makes your package compatible with the add-on tools (sensitivity
 analysis, parameter estimation, etc). Note that, in order for the method to be
 used as a default, one is required to move their
-package to the JuliaDiffEq organization so that way common maintenance (such
+package to the SciML organization so that way common maintenance (such
 as fixing deprication warnings, updating tests to newer versions, and emergency
-fixes / disabling) can be allowed by JuliaDiffEq members. However, the lead developer
+fixes / disabling) can be allowed by SciML members. However, the lead developer
 of the package maintains administrative control, and thus any change to the core
-algorithms by other JuliaDiffEq members will only be given through PRs.
+algorithms by other SciML members will only be given through PRs.
 
 Even if you don't have the time to contribute new solver algorithms or add-on tools,
 there's always ways to help! Improved plot recipes and new series recipes are
@@ -49,6 +49,10 @@ notebooks to DiffEqTutorials.jl is a good way to share knowledge about Different
 Also, please feel free to comb through the solvers and look for ways to make them
 more efficient. Lastly, the documentation could always use improvements. If you
 have any questions on how to help, just ask them in the Gitter!
+
+### Code of Conduct
+
+All contributors must adhere to the [NumFOCUS Code of Conduct](https://numfocus.org/code-of-conduct).
 
 ### Contributor Guide
 
