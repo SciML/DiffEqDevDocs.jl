@@ -1,13 +1,13 @@
-# DiffEq Developer Documentation
+# SciML Developer Documentation
 
-This is the developer documentation and Contributor's Guide for the DiffEq ecosystem. It explains the common
+This is the developer documentation and Contributor's Guide for the SciML ecosystem. It explains the common
 interface and some the package internals to help developers contribute.
 
 If you have any questions, or just want to chat about solvers/using the package, please feel free to use the [Gitter channel](https://gitter.im/JuliaDiffEq/Lobby). For bug reports, feature requests, etc., please submit an issue.
 
 ### Overview
 
-The DiffEq ecosystem is built around the common interface. The common interface
+The SciML ecosystem is built around the common interface. The common interface
 is a type-based interface where users define problems as a type, and solvers
 plug into the ecosystem by defining an algorithm to give a new dispatch to
 
