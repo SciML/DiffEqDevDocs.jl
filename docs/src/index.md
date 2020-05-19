@@ -52,7 +52,8 @@ have any questions on how to help, just ask them in the Gitter!
 
 ### Code of Conduct
 
-All contributors must adhere to the [NumFOCUS Code of Conduct](https://numfocus.org/code-of-conduct).
+All contributors must adhere to the [NumFOCUS Code of Conduct](https://numfocus.org/code-of-conduct). 
+Treat everyone with respect. Failure to comply will result in individuals being banned from the community. 
 
 ### Contributor Guide
 
