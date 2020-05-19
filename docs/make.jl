@@ -3,7 +3,7 @@ using Documenter,DiffEqDevTools,OrdinaryDiffEq
 makedocs(modules=[DiffEqDevTools,OrdinaryDiffEq],
          doctest=false, clean=true,
          format = Documenter.HTML(),
-         sitename="DiffEq Developer Documentation",
+         sitename="SciML Developer Documentation",
          authors="Chris Rackauckas",
          pages = Any[
          "Home" => "index.md",
