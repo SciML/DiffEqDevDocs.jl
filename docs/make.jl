@@ -27,5 +27,5 @@ makedocs(modules=[DiffEqDevTools,OrdinaryDiffEq],
          ])
 
 deploydocs(
-   repo = "github.com/JuliaDiffEq/DiffEqDevDocs.jl.git",
+   repo = "github.com/SciML/DiffEqDevDocs.jl.git",
 )
