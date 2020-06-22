@@ -60,7 +60,7 @@ For more details, refer to https://github.com/JuliaDiffEq/OrdinaryDiffEq.jl/pull
 using OrdinaryDiffEq
 import OrdinaryDiffEq: OrdinaryDiffEqAlgorithm,OrdinaryDiffEqConstantCache,
       alg_order, alg_cache, initialize!, perform_step!, @muladd, @unpack,
-      constvalue
+      constvalue, @cache
 
 struct RK_ALG <: OrdinaryDiffEq.OrdinaryDiffEqAlgorithm end
 export RK_ALG
