@@ -6,7 +6,7 @@ it's a new problem (a new PDE, a new type of differential equation, a new
 subclass of problems for which special methods exist, etc.) then the problem
 and solution types should be added to `DiffEqBase` first.
 
-After the problem and solutions are defined, the `solve` method should be implemented.
+After the problem and solutions are defined, the `__solve` method should be implemented.
 It should take in keyword arguments which match the common interface (implement
 "as many as possible"). One should note and document the amount of compatibility
 with the common interface and Julia-defined types. After that, testing should be
