@@ -32,7 +32,7 @@ setups = [Dict(:alg=>DP5())
           Dict(:abstol=>1e-3,:reltol=>1e-6,:alg=>ode45()) # Fix ODE to be normal
           Dict(:alg=>dopri5())]
 names = ["DifferentialEquations";"ODE";"ODEInterface"]
-shoot = Shootout(prob,setups;names=names)
+shoot = Shootout(prob,setups;dt=1/2^(10),names=names)
 ```
 
 Note that keyword arguments applied to `Shootout` are applied to every run, so
