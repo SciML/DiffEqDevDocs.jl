@@ -1,4 +1,4 @@
-# SciML Developer Documentation
+# SciML Scientific Machine Learning Developer Documentation
 
 This is the developer documentation and Contributor's Guide for the SciML ecosystem. It explains the common
 interface and some the package internals to help developers contribute.
