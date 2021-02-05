@@ -39,8 +39,8 @@ to mutate the state.
 
 Note the name `ConstantCache`. In OrdinaryDiffEq.jl, the `Algorithm` types are used
 for holding type information about which solver to choose, and its the "cache" types
-which then hold the internal caches and state. `ConstantCache` types are for
-not inplace calculations `f(t,u)` and `Cache` types (like `MidpointCache`) include
+which then hold the internal caches and state. `ConstantCache` types are not for
+inplace calculations. `f(t,u)` and `Cache` types (like `MidpointCache`) include
 all of the internal arrays. Their constructor is specified in the `cache.jl` file.
 The cache (and the first `fsalfirst`) is initialized in the `initialize!` function
 next to the cache's `perform_step!` function.
