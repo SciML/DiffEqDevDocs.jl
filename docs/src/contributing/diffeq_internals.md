@@ -1,6 +1,6 @@
 # The DiffEq Internals
 
-The DiffEq solvers, OrdineryDiffEq, StochasticDiffEq, FiniteElementDiffEq, etc.
+The DiffEq solvers, OrdinaryDiffEq, StochasticDiffEq, FiniteElementDiffEq, etc.
 all follow a similar scheme which leads to rapid development and high performance.
 This portion of the documentation explains how the algorithms are written.
 
@@ -30,7 +30,7 @@ end
 
 The available items are all unloaded from the `integrator` in the first line.
 `fsalfirst` inherits the value of `fsallast` on the last line. The algorithm is
-written in this form so that way the derivative of both endpints is defined, allowing
+written in this form so that way the derivative of both endpoints is defined, allowing
 the vector `integrator.k` to determine a  Hermite interpolation polynomial (in general,
 the `k` values for each algorithm form the interpolating polynomial). Other than that,
 the algorithm is as basic as it gets for the Midpoint method, making sure to set
@@ -73,7 +73,7 @@ Afterwards, the `loopfooter!` is used to calculate new timesteps, save, and appl
 callbacks. If a value of `tstops` is hit, the algorithm breaks out of the inner-most
 loop to save the value.
 
-Adding algorithms to the other problems is very similar, just in a different pacakge.
+Adding algorithms to the other problems is very similar, just in a different package.
 
 ## Extras
 
