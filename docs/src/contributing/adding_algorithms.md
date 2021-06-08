@@ -58,11 +58,16 @@ For more details, refer to https://github.com/JuliaDiffEq/OrdinaryDiffEq.jl/pull
 
 ```julia
 using OrdinaryDiffEq
-import OrdinaryDiffEq: OrdinaryDiffEqAlgorithm,OrdinaryDiffEqConstantCache,
-      alg_order, alg_cache, initialize!, perform_step!, @muladd, @unpack,
-      constvalue, @cache
+import OrdinaryDiffEq: 
+      OrdinaryDiffEqAlgorithm, OrdinaryDiffEqMutableCache, OrdinaryDiffEqConstantCache,
+      alg_order, alg_cache, initialize!, perform_step!, trivial_limiter!, constvalue,
+      @muladd, @unpack, @cache, @..
 
-struct RK_ALG <: OrdinaryDiffEq.OrdinaryDiffEqAlgorithm end
+struct RK_ALG{StageLimiter,StepLimiter} <: OrdinaryDiffEq.OrdinaryDiffEqAlgorithm 
+  stage_limiter!::StageLimiter
+  step_limiter!::StepLimiter
+end
+RK_ALG(stage_limiter! = trivial_limiter!) = RK_ALG(stage_limiter!, trivial_limiter!)
 export RK_ALG
 alg_order(alg::RK_ALG) = 3
 
@@ -188,28 +193,28 @@ end
 
   # u1 -> stored as u
   @.. u = uprev + β10 * dt * integrator.fsalfirst
-  stage_limiter!(u, f, t+c1*dt)
+  stage_limiter!(u, f, p, t+c1*dt)
   f( k,  u, p, t+c1*dt)
   # u2
   @.. u₂ = u + β21 * dt * k
-  stage_limiter!(u₂, f, t+c2*dt)
+  stage_limiter!(u₂, f, p, t+c2*dt)
   f(k,u₂,p,t+c2*dt)
   # u3
   @.. tmp = u₂ + β32 * dt * k
-  stage_limiter!(tmp, f, t+c3*dt)
+  stage_limiter!(tmp, f, p, t+c3*dt)
   f( k,  tmp, p, t+c3*dt)
   # u4
   @.. tmp = α40 * uprev + α41 * u + α43 * tmp + β43 * dt * k
-  stage_limiter!(tmp, f, t+c4*dt)
+  stage_limiter!(tmp, f, p, t+c4*dt)
   f( k,  tmp, p, t+c4*dt)
   # u5
   @.. tmp = tmp + β54 * dt * k
-  stage_limiter!(tmp, f, t+c5*dt)
+  stage_limiter!(tmp, f, p, t+c5*dt)
   f( k,  tmp, p, t+c5*dt)
   # u
   @.. u = α62 * u₂ + α65 * tmp + β65 * dt * k
-  stage_limiter!(u, f, t+dt)
-  step_limiter!(u, f, t+dt)
+  stage_limiter!(u, f, p, t+dt)
+  step_limiter!(u, f, p, t+dt)
   integrator.destats.nf += 6
   f( k,  u, p, t+dt)
 end
@@ -230,7 +235,7 @@ sim = test_convergence(dts,prob,RK_ALG())
 sim.𝒪est[:final]
 plot(sim)
 
-# Exanple of a good one!
+# Example of a good one!
 sim = test_convergence(dts,prob,BS3())
 sim.𝒪est[:final]
 plot(sim)
@@ -249,7 +254,7 @@ sim = test_convergence(dts,prob,RK_ALG())
 sim.𝒪est[:final]
 plot(sim)
 
-# Exanple of a good one!
+# Example of a good one!
 sim = test_convergence(dts,prob,BS3())
 sim.𝒪est[:final]
 plot(sim)
@@ -279,7 +284,7 @@ the timestepping variant `phiv_timestep`. The timestepping method follows the co
 of Neisen & Wright, and can be toggled to use adaptation by `alg.adaptive_krylov`.
 
 Although the exponential integrators (especially the in-place version) can seem complex, they
-share similar structures. The infrastructure for the exisitng exponential methods utilize the
+share similar structures. The infrastructure for the existing exponential methods utilize the
 fact to reduce boilerplate code. In particular, the cache construction code in
 `caches/linear_nonlinear_caches.jl` and the `initialize!` method in
 `perform_step/exponential_rk_perform_step.jl` can be mostly automated and only `perform_step!`
