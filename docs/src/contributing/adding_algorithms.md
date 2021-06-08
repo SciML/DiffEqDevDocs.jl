@@ -71,7 +71,7 @@ RK_ALG(stage_limiter! = trivial_limiter!) = RK_ALG(stage_limiter!, trivial_limit
 export RK_ALG
 alg_order(alg::RK_ALG) = 3
 
-struct RK_ALGCache{uType,rateType,StageLimiter,StepLimiter,TabType} <: OrdinaryDiffEqMutableCache
+@cache struct RK_ALGCache{uType,rateType,StageLimiter,StepLimiter,TabType} <: OrdinaryDiffEqMutableCache
   u::uType
   uprev::uType
   k::rateType
