@@ -61,7 +61,7 @@ using OrdinaryDiffEq
 import OrdinaryDiffEq: 
       OrdinaryDiffEqAlgorithm, OrdinaryDiffEqMutableCache, OrdinaryDiffEqConstantCache,
       alg_order, alg_cache, initialize!, perform_step!, trivial_limiter!, constvalue,
-      @muladd, @unpack, @..
+      @muladd, @unpack, @cache, @..
 
 struct RK_ALG{StageLimiter,StepLimiter} <: OrdinaryDiffEq.OrdinaryDiffEqAlgorithm 
   stage_limiter!::StageLimiter
