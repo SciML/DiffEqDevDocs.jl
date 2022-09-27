@@ -5,15 +5,10 @@ difference in error, speed, and efficiency between algorithms. DifferentialEquat
 understand the performance of the methods. These benchmarking notebooks use the included benchmarking suite. There are two parts to the benchmarking suite: shootouts and work-precision. The `Shootout` tests methods head-to-head for timing and error on the same problem. A `WorkPrecision` draws a work-precision diagram
 for the algorithms in question on the chosen problem.
 
-### Using the Benchmarking Notebooks
+### Rendered Benchmarks
 
-To use the benchmarking notebooks, IJulia is required. The commands are as follows:
-
-```julia
-]add "www.github.com/JuliaDiffEq/DiffEqBenchmarks"
-using IJulia
-notebook(dir = Pkg.dir("DiffEqBenchmarks"))
-```
+The rendered SciML Benchmarks can be found at [benchmarks.sciml.ai](https://benchmarks.sciml.ai/stable/). The source code
+for the benchmarks can be found at [https://github.com/SciML/SciMLBenchmarks.jl](https://github.com/SciML/SciMLBenchmarks.jl).
 
 ### Shootout
 
