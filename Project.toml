@@ -1,0 +1,9 @@
+name = "ModelingToolkit"
+uuid = "fa972c1a-df8f-4357-bc57-ece95b083f68"
+authors = ["Chris Rackauckas <accounts@chrisrackauckas.com>"]
+version = "1.0.0"
+
+[deps]
+
+[compat]
+julia = "1.6"
