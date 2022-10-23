@@ -1,6 +1,6 @@
 # DiffEqDevDocs
 
-[![Join the chat at https://gitter.im/JuliaDiffEq/Lobby](https://badges.gitter.im/JuliaDiffEq/Lobby.svg)](https://gitter.im/JuliaDiffEq/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://julialang.zulipchat.com #sciml-bridged](https://img.shields.io/static/v1?label=Zulip&message=chat&color=9558b2&labelColor=389826)](https://julialang.zulipchat.com/#narrow/stream/279055-sciml-bridged)
 [![Global Docs](https://img.shields.io/badge/docs-dev-blue.svg)](https://devdocs.sciml.ai/stable/)
 
 DiffEqDevDocs.jl is a component package in the DifferentialEquations ecosystem. It holds [the developer documentation for the solvers and add-on packages](https://devdocs.sciml.ai/dev/).
