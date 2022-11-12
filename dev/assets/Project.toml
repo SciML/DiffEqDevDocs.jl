@@ -1,0 +1,8 @@
+[deps]
+DiffEqDevDocs = "fa972c1a-df8f-4357-bc57-ece95b083f68"
+DiffEqDevTools = "f3b72e0c-5b89-59e1-b016-84e28bfd966d"
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+OrdinaryDiffEq = "1dea7af3-3e70-54e6-95c3-0bf5283fa5ed"
+
+[compat]
+Documenter = "0.27"
