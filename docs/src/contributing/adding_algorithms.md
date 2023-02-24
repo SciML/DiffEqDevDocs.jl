@@ -13,7 +13,7 @@ with the common interface and Julia-defined types. After that, testing should be
 done using `DiffEqDevTools`. Convergence tests and benchmarks should be included
 to show the effectiveness of the algorithm and the correctness. Do not worry if
 the algorithm is not "effective": the implementation can improve over time and
-some algorithms useful just for the comparison they give!
+some algorithms are useful just for the comparison they give!
 
 After some development, one may want to document the algorithm in DiffEqBenchmarks
 and DiffEqTutorials.
