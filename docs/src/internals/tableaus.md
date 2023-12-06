@@ -3,7 +3,7 @@
 ### Explicit Runge-Kutta Methods
 
 * `constructEuler` - Euler's 1st order method.
-* `constructHuen()` Huen's order 2 method.
+* `constructHeun()` Heun's order 2 method.
 * `constructRalston()` - Ralston's order 2 method.
 * `constructSSPRK22()` - Explicit SSP method of order 2 using 2 stages.
 * `constructKutta3` - Kutta's classic 3rd order method.
