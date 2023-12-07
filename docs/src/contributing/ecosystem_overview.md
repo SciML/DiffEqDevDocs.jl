@@ -16,7 +16,7 @@ __init(prob,alg;kwargs...)
 ```
 
 and the standard methods for dealing with solutions. A higher level `solve` and
-`init` is given by DiffEqBase.jl for functional and distributional intputs.
+`init` is given by DiffEqBase.jl for functional and distributional inputs.
 Users build problem
 types for solvers to act on, and add-on components which use the solution types
 for higher-level analysis like parameter estimation and sensitivity analysis.

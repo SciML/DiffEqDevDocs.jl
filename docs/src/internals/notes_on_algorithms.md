@@ -166,7 +166,7 @@ for adaptivity, making it the choice in this category.
 ### Order 11
 
 The order 11 schemes are due to Tom Baker at the University of Teeside. They
-have a nice sparsity pattern and receive slightly lower truncation error coefficents
+have a nice sparsity pattern and receive slightly lower truncation error coefficients
 than the Feagin, but Feagin's dominates by being "almost order 13" anyways
 so while a nice try the order 11 scheme is likely overwhelmed in any case where
 it would be useful.
