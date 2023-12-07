@@ -1085,9 +1085,9 @@ uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 
 [[deps.SparseDiffTools]]
 deps = ["ADTypes", "Adapt", "ArrayInterface", "Compat", "DataStructures", "FiniteDiff", "ForwardDiff", "Graphs", "LinearAlgebra", "PackageExtensionCompat", "Random", "Reexport", "SciMLOperators", "Setfield", "SparseArrays", "StaticArrayInterface", "StaticArrays", "Tricks", "UnPack", "VertexSafeGraphs"]
-git-tree-sha1 = "07272c80c278947baca092df0a01da4a10622ad5"
+git-tree-sha1 = "ddea63e5de5405878d990a2cea4fc1daf2d52d41"
 uuid = "47a9eef4-7e08-11e9-0b38-333d64bd3804"
-version = "2.13.0"
+version = "2.14.0"
 
     [deps.SparseDiffTools.extensions]
     SparseDiffToolsEnzymeExt = "Enzyme"
