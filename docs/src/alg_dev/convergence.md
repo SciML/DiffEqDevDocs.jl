@@ -29,7 +29,7 @@ A type which holds the data from a convergence simulation.
     - `node2Errors`: Vector of the nodal l2 errors.
 
 * `N`: The number of simulations.
-* `auxdata`: Auxillary data of the convergence simluation. Entries can include:
+* `auxdata`: Auxiliary data of the convergence simulation. Entries can include:
 
     - `dts`: The dt's in the simulations.
     - `dxs`: The dx's in the simulations.

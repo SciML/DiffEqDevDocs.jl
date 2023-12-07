@@ -36,7 +36,7 @@ interface, and makes your package compatible with the add-on tools (sensitivity
 analysis, parameter estimation, etc). Note that, in order for the method to be
 used as a default, one is required to move their
 package to the SciML organization so that way common maintenance (such
-as fixing deprication warnings, updating tests to newer versions, and emergency
+as fixing deprecation warnings, updating tests to newer versions, and emergency
 fixes / disabling) can be allowed by SciML members. However, the lead developer
 of the package maintains administrative control, and thus any change to the core
 algorithms by other SciML members will only be given through PRs.
