@@ -12,22 +12,23 @@ for the benchmarks can be found at [https://github.com/SciML/SciMLBenchmarks.jl]
 
 ### Shootout
 
- A
+A
 shootout is where you compare between algorithms. For example, to see how
 different Runge-Kutta algorithms fair against each other, one can define a setup
 which is a dictionary of Symbols to Any, where the symbol is the keyword argument.
 Then you call `Shootout` on that setup. The code is as follows:
 
 ```julia
-using OrdinaryDiffEq,DiffEqProblemLibrary.ODEProblemLibrary,DiffEqDevTools,ODE,ODEInterface,ODEInterfaceDiffEq
+using OrdinaryDiffEq, DiffEqProblemLibrary.ODEProblemLibrary, DiffEqDevTools, ODE,
+      ODEInterface, ODEInterfaceDiffEq
 
 ODEProblemLibrary.importodeproblems()
 prob = ODEProblemLibrary.prob_ode_2Dlinear
-setups = [Dict(:alg=>DP5())
-          Dict(:abstol=>1e-3,:reltol=>1e-6,:alg=>ode45()) # Fix ODE to be normal
-          Dict(:alg=>dopri5())]
-names = ["DifferentialEquations";"ODE";"ODEInterface"]
-shoot = Shootout(prob,setups;dt=1/2^(10),names=names)
+setups = [Dict(:alg => DP5())
+          Dict(:abstol => 1e-3, :reltol => 1e-6, :alg => ode45()) # Fix ODE to be normal
+          Dict(:alg => dopri5())]
+names = ["DifferentialEquations"; "ODE"; "ODEInterface"]
+shoot = Shootout(prob, setups; dt = 1 / 2^(10), names = names)
 ```
 
 Note that keyword arguments applied to `Shootout` are applied to every run, so
@@ -58,9 +59,9 @@ shows how time scales with the user chosen tolerances on a given problem. To mak
 a WorkPrecision, you give it a vector of absolute and relative tolerances:
 
 ```julia
-abstols = 1 ./10 .^ (3:10)
-reltols = 1 ./10 .^ (3:10)
-wp = WorkPrecision(prob,DP5(),abstols,reltols;name="Dormand-Prince 4/5")
+abstols = 1 ./ 10 .^ (3:10)
+reltols = 1 ./ 10 .^ (3:10)
+wp = WorkPrecision(prob, DP5(), abstols, reltols; name = "Dormand-Prince 4/5")
 ```
 
 If we want to plot many WorkPrecisions together in order to compare between
@@ -68,10 +69,10 @@ algorithms, you can make a WorkPrecisionSet. To do so, you pass the setups
 into the function as well:
 
 ```julia
-wp_set = WorkPrecisionSet(prob,tspan,abstols,reltols,setups;numruns=2)
-setups = [Dict(:alg=>RK4());Dict(:alg=>Euler());Dict(:alg=>BS3());
-          Dict(:alg=>Midpoint());Dict(:alg=>BS5());Dict(:alg=>DP5())]    
-wp_set = WorkPrecisionSet(prob,abstols,reltols,setups;dt=1/2^4,numruns=2)
+wp_set = WorkPrecisionSet(prob, tspan, abstols, reltols, setups; numruns = 2)
+setups = [Dict(:alg => RK4()); Dict(:alg => Euler()); Dict(:alg => BS3());
+          Dict(:alg => Midpoint()); Dict(:alg => BS5()); Dict(:alg => DP5())]
+wp_set = WorkPrecisionSet(prob, abstols, reltols, setups; dt = 1 / 2^4, numruns = 2)
 ```
 
 Both of these types have a plot recipe to produce a work-precision diagram,

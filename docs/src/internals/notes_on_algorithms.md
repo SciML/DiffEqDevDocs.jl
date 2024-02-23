@@ -16,10 +16,10 @@ was calculated by weighing both the time and error on classic test problems.
 To make clear distinctions, solver options were tweaked to many different settings,
 including:
 
-  * Matching errors
-  * Matching runtimes
-  * Matching settings
-  * Low/High tolerance
+  - Matching errors
+  - Matching runtimes
+  - Matching settings
+  - Low/High tolerance
 
 The DifferentialEquations.jl implementations of the explicit Runge-Kutta solvers
 are by a good margin the most efficient implementations of the given algorithms.

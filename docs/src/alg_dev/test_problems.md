@@ -12,21 +12,21 @@ are three constructors. The code is simple, so here it is:
 
 ```julia
 mutable struct TestSolution <: DESolution
-  t
-  u
-  interp
-  dense
+    t::Any
+    u::Any
+    interp::Any
+    dense::Any
 end
 (T::TestSolution)(t) = T.interp(t)
-TestSolution(t,u) = TestSolution(t,u,nothing,false)
-TestSolution(t,u,interp) = TestSolution(t,u,interp,true)
-TestSolution(interp::DESolution) = TestSolution(nothing,nothing,interp,true)
+TestSolution(t, u) = TestSolution(t, u, nothing, false)
+TestSolution(t, u, interp) = TestSolution(t, u, interp, true)
+TestSolution(interp::DESolution) = TestSolution(nothing, nothing, interp, true)
 ```
 
 This acts like a solution. When used in conjunction with `apprxtrue`:
 
 ```julia
-appxtrue(sol::AbstractODESolution,sol2::TestSolution)
+appxtrue(sol::AbstractODESolution, sol2::TestSolution)
 ```
 
 you can use it to build a `TestSolution` from a problem (like `ODETestSolution`)

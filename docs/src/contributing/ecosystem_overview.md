@@ -11,8 +11,8 @@ The DiffEq ecosystem is built around the common interface. This is the interface
 for the solvers:
 
 ```julia
-__solve(prob,alg;kwargs...)
-__init(prob,alg;kwargs...)
+__solve(prob, alg; kwargs...)
+__init(prob, alg; kwargs...)
 ```
 
 and the standard methods for dealing with solutions. A higher level `solve` and

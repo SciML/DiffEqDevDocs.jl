@@ -17,11 +17,12 @@ type.
 
 ### AbstractODEProblem
 
-- `isinplace` : Returns true if the problem uses in-place functions
+  - `isinplace` : Returns true if the problem uses in-place functions
 
 ### AbstractRODEProblem
 
-- `is_diagonal_noise` : Returns true if the noise is diagonal.
+  - `is_diagonal_noise` : Returns true if the noise is diagonal.
 
 ### DEAlgorithm
-- `isautodifferentiable` : Returns true if the algorithm is autodifferentiable.
+
+  - `isautodifferentiable` : Returns true if the algorithm is autodifferentiable.
