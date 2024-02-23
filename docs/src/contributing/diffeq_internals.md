@@ -15,16 +15,16 @@ is denoted by the `perform_step!(integrator)` function. For example,
 take a look at the Midpoint method's implementation:
 
 ```julia
-@inline function perform_step!(integrator,cache::MidpointConstantCache,f=integrator.f)
-  @unpack t,dt,uprev,u,k = integrator
-  halfdt = dt/2
-  k = integrator.fsalfirst
-  k = f(t+halfdt,uprev+halfdt*k)
-  u = uprev + dt*k
-  integrator.fsallast = f(u,p,t+dt) # For interpolation, then FSAL'd
-  integrator.k[1] = integrator.fsalfirst
-  integrator.k[2] = integrator.fsallast
-  @pack integrator = t,dt,u
+@inline function perform_step!(integrator, cache::MidpointConstantCache, f = integrator.f)
+    @unpack t, dt, uprev, u, k = integrator
+    halfdt = dt / 2
+    k = integrator.fsalfirst
+    k = f(t + halfdt, uprev + halfdt * k)
+    u = uprev + dt * k
+    integrator.fsallast = f(u, p, t + dt) # For interpolation, then FSAL'd
+    integrator.k[1] = integrator.fsalfirst
+    integrator.k[2] = integrator.fsallast
+    @pack integrator = t, dt, u
 end
 ```
 
@@ -49,18 +49,18 @@ The main inner loop can be summarized by the `solve!` command:
 
 ```julia
 @inbounds while !isempty(integrator.opts.tstops)
-   while integrator.tdir*integrator.t < integrator.tdir*top(integrator.opts.tstops)
-     loopheader!(integrator)
-     @ode_exit_conditions
-     perform_step!(integrator,integrator.cache)
-     loopfooter!(integrator)
-     if isempty(integrator.opts.tstops)
-       break
-     end
-   end
-   handle_tstop!(integrator)
- end
- postamble!(integrator)
+    while integrator.tdir * integrator.t < integrator.tdir * top(integrator.opts.tstops)
+        loopheader!(integrator)
+        @ode_exit_conditions
+        perform_step!(integrator, integrator.cache)
+        loopfooter!(integrator)
+        if isempty(integrator.opts.tstops)
+            break
+        end
+    end
+    handle_tstop!(integrator)
+end
+postamble!(integrator)
 ```
 
 The algorithm runs until `tstop` is empty. It hits the `loopheader!` in order to

@@ -22,7 +22,7 @@ to set this:
 
 ```julia
 struct daskr{LinearSolver} <: DASKRDAEAlgorithm{LinearSolver} end
-daskr(;linear_solver=:Dense) = daskr{linear_solver}()
+daskr(; linear_solver = :Dense) = daskr{linear_solver}()
 ```
 
 In many (most?) cases, no extra constructor is needed since there are no
@@ -42,18 +42,18 @@ now we overload `__solve` from `DiffEqBase.jl` to act on our algorithm. Here's a
 possible signature:
 
 ```julia
-function DiffEqBase.__solve{uType,duType,tType,isinplace,LinearSolver}(
-    prob::AbstractDAEProblem{uType,duType,tType,isinplace},
-    alg::DASKRDAEAlgorithm{LinearSolver},
-    timeseries = [], ts = [], ks = [];
-
-    verbose=true,
-    callback = nothing, abstol = 1/10^6, reltol = 1/10^3,
-    saveat = Float64[], adaptive = true, maxiters = Int(1e5),
-    timeseries_errors = true, save_everystep = isempty(saveat), dense = save_everystep,
-    save_start = true, save_timeseries = nothing,
-    userdata = nothing,
-    kwargs...)
+function DiffEqBase.__solve{uType, duType, tType, isinplace, LinearSolver}(
+        prob::AbstractDAEProblem{uType, duType, tType, isinplace},
+        alg::DASKRDAEAlgorithm{LinearSolver},
+        timeseries = [], ts = [], ks = []; verbose = true,
+        callback = nothing, abstol = 1 / 10^6, reltol = 1 / 10^3,
+        saveat = Float64[], adaptive = true, maxiters = Int(1e5),
+        timeseries_errors = true, save_everystep = isempty(saveat), dense = save_everystep,
+        save_start = true, save_timeseries = nothing,
+        userdata = nothing,
+        kwargs...)
+    # do something
+end
 ```
 
 Basically you just dispatch on your algorithm supertype (and refine the `Problem`
@@ -68,11 +68,11 @@ In `solve` you do option handling and call your solver. At the end, you return
 the solution via:
 
 ```julia
-build_solution(prob,alg,ts,timeseries,
-               du = dures,
-               dense = dense,
-               timeseries_errors = timeseries_errors,
-               retcode = :Success)
+build_solution(prob, alg, ts, timeseries,
+    du = dures,
+    dense = dense,
+    timeseries_errors = timeseries_errors,
+    retcode = :Success)
 ```
 
 Giving `du` is only currently allowed for DAEs and is optional. The errors
