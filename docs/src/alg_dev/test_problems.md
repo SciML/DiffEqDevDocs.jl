@@ -11,7 +11,7 @@ ecosystem supports this through the `TestSolution` type in DiffEqDevTools. There
 are three constructors. The code is simple, so here it is:
 
 ```julia
-type TestSolution <: DESolution
+mutable struct TestSolution <: DESolution
   t
   u
   interp
