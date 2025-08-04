@@ -8,3 +8,6 @@ updates:
     ignore:
       - dependency-name: "crate-ci/typos"
         update-types: ["version-update:semver-patch", "version-update:semver-minor"]
+    ignore:
+      - dependency-name: "crate-ci/typos"
+        update-types: ["version-update:semver-patch", "version-update:semver-minor"]
